@@ -7,7 +7,6 @@
 			currentTarget: EventTarget & HTMLInputElement;
 		}
 	) => {
-		console.log('test');
 		let image = e.currentTarget?.files?.[0];
 		let reader = new FileReader();
 
