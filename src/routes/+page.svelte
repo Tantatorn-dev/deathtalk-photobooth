@@ -1,4 +1,6 @@
 <script>
+	import ImageUploader from "../components/ImageUploader.svelte";
+
 	let screenWidth = 0;
 </script>
 
@@ -8,6 +10,7 @@
 	Please use mobile device
 {:else}
 	Hello Deathtalk
+	<ImageUploader />
 {/if}
 
 <style lang="postcss">
