@@ -19,7 +19,7 @@
 	};
 </script>
 
-<div id="img-uploader">
+<div class="img-uploader">
 	<h1>Upload Image</h1>
 
 	{#if avatar}
@@ -50,7 +50,7 @@
 </div>
 
 <style>
-	#img-uploader {
+	.img-uploader {
 		display: flex;
 		align-items: center;
 		justify-content: center;
