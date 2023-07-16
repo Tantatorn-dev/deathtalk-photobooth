@@ -1,5 +1,4 @@
 <script>
-	import ImageUploader from '../components/ImageUploader.svelte';
 	import Button from '../components/Button.svelte';
 
 	let screenWidth = 0;
