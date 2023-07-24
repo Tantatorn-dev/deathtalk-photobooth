@@ -20,8 +20,6 @@
 </script>
 
 <div class="img-uploader">
-	<h1>Upload Image</h1>
-
 	{#if avatar}
 		<img class="avatar" src={avatar} alt="d" />
 	{:else}

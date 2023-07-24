@@ -1,9 +1,11 @@
 <script lang="ts">
-	export let text: string;
+	export let onClick: () => void;
 
 	let clicked = false;
 
 	const handleClick = () => {
+		onClick();
+
 		clicked = true;
 
 		setTimeout(() => {
@@ -22,7 +24,7 @@
 
 <button on:click={handleClick} class="relative">
 	<div class={getBodyStyle(clicked)}>
-		{text}
+		<slot />
 	</div>
 	<div class="button-shadow" />
 </button>
