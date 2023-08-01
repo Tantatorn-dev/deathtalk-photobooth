@@ -27,7 +27,11 @@
 	}
 
 	:global(html) {
-		background-color: theme(colors.black);
-		color: theme(colors.white);
+		background-color: theme(colors.white);
+		color: theme(colors.black);
+	}
+
+	.text-splash {
+		background-image: url('/splash_bg.png');
 	}
 </style>
