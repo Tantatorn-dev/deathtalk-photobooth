@@ -30,8 +30,4 @@
 		background-color: theme(colors.white);
 		color: theme(colors.black);
 	}
-
-	.text-splash {
-		background-image: url('/splash_bg.png');
-	}
 </style>

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { goto } from "$app/navigation";
 	import ArrowRight from "../../components/photo/ArrowRight.svelte";
 
 </script>
@@ -8,15 +9,17 @@
 
 	<div class="flex flex-col w-full gap-1 pl-16 pr-16 mt-4">
 		<p class="text-sm">ชื่อ</p>
-		<input type="text" class="w-full p-2 border border-black rounded-md" />
+		<input type="text" class="button-secondary" />
 	</div>
 
 	<div class="flex flex-col w-full gap-1 pl-16 pr-16 mt-4">
 		<p class="text-sm">รูปโปรไฟล์</p>
-		<button class="w-full p-2 border border-black rounded-md">อัปโหลดรูปภาพ</button>
+		<button class="button-secondary">อัปโหลดรูปภาพ</button>
 	</div>
 
-	<button class="flex flex-row justify-end w-full pr-20 mt-8">
+	<button on:click={()=>{
+		goto("/intro")
+	}} class="flex flex-row justify-end w-full pr-20 mt-8">
 		<p>ต่อไป</p>
 		<ArrowRight />
 	</button>

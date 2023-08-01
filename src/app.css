@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.button-primary {
+	@apply w-full p-2 text-white bg-black border rounded-md;
+}
+
+.button-secondary {
+	@apply w-full p-2 border border-black rounded-md;
+}
