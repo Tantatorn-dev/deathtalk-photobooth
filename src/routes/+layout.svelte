@@ -21,8 +21,13 @@
 	<slot />
 {/if}
 
-<style>
+<style lang="postcss">
 	:global(body) {
 		font-family: 'IBM Plex Sans Thai Looped', sans-serif;
+	}
+
+	:global(html) {
+		background-color: theme(colors.black);
+		color: theme(colors.white);
 	}
 </style>
