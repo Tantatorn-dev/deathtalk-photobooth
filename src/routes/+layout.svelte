@@ -1,5 +1,7 @@
 <script>
 	import '../app.css';
+
+	let screenWidth = 0;
 </script>
 
 <svelte:head>
@@ -11,7 +13,13 @@
 	/>
 </svelte:head>
 
-<slot />
+<svelte:window bind:innerWidth={screenWidth} />
+
+{#if screenWidth > 768}
+	<p>Please use mobile device</p>
+{:else}
+	<slot />
+{/if}
 
 <style>
 	:global(body) {

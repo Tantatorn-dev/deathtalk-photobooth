@@ -3,8 +3,6 @@
 	import ImageUploader from '../components/common/ImageUploader.svelte';
 	import Intro from '../components/intro/Intro.svelte';
 
-	let screenWidth = 0;
-
 	enum IntroState {
 		Welcome,
 		Disclaimer,
@@ -15,11 +13,7 @@
 	let currentState: IntroState = IntroState.Intro;
 </script>
 
-<svelte:window bind:innerWidth={screenWidth} />
-
-{#if screenWidth > 768}
-	<p>Please use mobile device</p>
-{:else if currentState === IntroState.Welcome}
+{#if currentState === IntroState.Welcome}
 	<div class="flex flex-col gap-3 ml-8 mr-8 mt-20">
 		<p class="text-primary text-4xl text-center">ยินดีต้อนรับสู่ <br /> Death Talk</p>
 		<p class="text-2xl text-center">คุณเตรียมพร้อมสำหรับ “ความตาย” มากน้อยขนาดไหน?</p>
