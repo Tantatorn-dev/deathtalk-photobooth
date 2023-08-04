@@ -27,7 +27,7 @@
 	}
 
 	:global(html) {
-		background-color: theme(colors.white);
+		background-color: rgba(246, 241, 238);;
 		color: theme(colors.black);
 	}
 </style>
