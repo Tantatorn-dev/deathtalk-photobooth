@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import VineFrame from '../../components/frame/VineFrame.svelte';
 	import { avatar } from '../../store';
 
@@ -18,11 +19,17 @@
 	}
 
 	let stage: Stage = Stage.Hello;
+
+	setInterval(() => {
+		if(stage === Stage.Portrait) return;
+		if(stage === Stage.Info4) goto('/explore');
+		stage = stage + 1;
+	}, 5000);
 </script>
 
 {#if stage == Stage.Hello}
 	<VineFrame
-		><div class="flex flex-col items-center justify-center h-full">
+		><div class="container">
 			<p>สวัสดี โอม</p>
 		</div></VineFrame
 	>
@@ -35,33 +42,47 @@
 		{/if}
 
 		<div class="flex flex-col w-full gap-4 pl-10 pr-10 mt-4">
-			<p class="text-sm text-center">คุณเคยจินตนาการถึงภาพตัวเองตอนตายไหม?</p>
-			<button class="button-primary">เคย</button>
-			<button class="button-primary">ไม่เคย</button>
+			<p class="text-intro">คุณเคยจินตนาการถึงภาพตัวเองตอนตายไหม?</p>
+			<button class="button-primary" on:click={()=>{
+				stage = Stage.Info1;
+			}}>เคย</button>
+			<button class="button-primary" on:click={()=>{
+				stage = Stage.Info1;
+			}}>ไม่เคย</button>
 		</div>
 	</div>
 {:else if stage == Stage.Info1}
 	<VineFrame
-		><div class="flex flex-col items-center justify-center h-full">
-			<p>เราอาจมีหลายความรู้สึกเกิดขึ้น หลังจากที่ได้เห็นภาพของตัวเอง</p>
+		><div class="container">
+			<p class="text-intro">เราอาจมีหลายความรู้สึกเกิดขึ้น หลังจากที่ได้เห็นภาพของตัวเอง</p>
 		</div></VineFrame
 	>
 {:else if stage == Stage.Info2}
 	<VineFrame
-		><div class="flex flex-col items-center justify-center h-full">
-			<p>คนส่วนมาก คิดว่าการพูด หรือทำอะไรเกี่ยวกับความตาย เป็นลางร้าย อัปมงคล และไม่ควรพูดถึง</p>
+		><div class="container">
+			<p class="text-intro">คนส่วนมาก คิดว่าการพูด หรือทำอะไรเกี่ยวกับความตาย เป็นลางร้าย อัปมงคล และไม่ควรพูดถึง</p>
 		</div></VineFrame
 	>
 {:else if stage == Stage.Info3}
 	<VineFrame
-		><div class="flex flex-col items-center justify-center h-full">
-			<p>ซึ่งการไม่พูดเรื่องความตาย มีผลเสียมากกว่าที่เราคิด..</p>
+		><div class="container">
+			<p class="text-intro">ซึ่งการไม่พูดเรื่องความตาย มีผลเสียมากกว่าที่เราคิด..</p>
 		</div></VineFrame
 	>
 {:else if stage == Stage.Info4}
 	<VineFrame
-		><div class="flex flex-col items-center justify-center h-full">
-			<p>80% ของคนที่ได้จากไป ไม่มีการวางแผนคาดการณ์ล่วงหน้า</p>
+		><div class="container">
+			<p class="text-intro">80% ของคนที่ได้จากไป ไม่มีการวางแผนคาดการณ์ล่วงหน้า</p>
 		</div></VineFrame
 	>
 {/if}
+
+<style>
+	.container {
+		@apply flex flex-col items-center justify-center h-full pl-16 pr-16;
+	}
+
+	.text-intro {
+		@apply text-sm text-center;
+	}
+</style>
