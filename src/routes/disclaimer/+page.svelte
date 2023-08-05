@@ -3,15 +3,13 @@
 	import SplashText from '../../components/common/SplashText.svelte';
 
 	setTimeout(() => {
-		goto('/photo');
+		//goto('/photo');
 	}, 5000);
 </script>
 
-<div class="flex flex-col gap-3 mt-20 ml-8 mr-8">
+<div class="flex flex-col gap-3 mt-20 ml-4 mr-4">
 	<SplashText className="text-3xl text-center">คำเตือน</SplashText>
-	<p class="mt-4 text-sm text-center">
-		Lorem ipsum dolor sit amet consectetur. Hac pharetra quis in orci risus at suspendisse. Ornare
-		elementum erat sed pulvinar mattis sed. Maecenas placerat tempor magna varius natoque.
-		Sollicitudin varius tortor est massa sed enim.
+	<p class="mt-4 text-xs text-center">
+		เว็บไซต์นี้มีเนื้อหาเกี่ยวกับความตาย หากคุณรู้สึกไม่โอเค <br> “สามารถหยุดเล่นได้ตลอดเวลา”
 	</p>
 </div>
