@@ -1,7 +1,5 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
 	import NextButton from '../../components/common/NextButton.svelte';
-	import ArrowRight from '../../components/common/svg/ArrowRight.svelte';
 	import { avatar } from '../../store';
 
 	let fileinput: HTMLInputElement;
@@ -33,7 +31,7 @@
 	};
 </script>
 
-<div class="flex flex-col items-center gap-2 pl-16 pr-16 mt-32">
+<div class="flex flex-col items-center gap-2 pl-16 pr-16 mt-16">
 	{#if avatarValue}
 		<img src={avatarValue} class="w-48" alt="avatar" />
 	{:else}
@@ -42,7 +40,12 @@
 
 	<div class="flex flex-col w-full gap-1 mt-4">
 		<p class="text-sm">ชื่อ</p>
-		<input type="text" class="button-secondary" />
+		<input type="text" class="button-secondary bg-secondary" placeholder="พิมพ์ชื่อ" />
+	</div>
+
+	<div class="flex flex-col w-full gap-1 mt-4">
+		<p class="text-sm">วันเกิด</p>
+		<input type="text" class="button-secondary bg-secondary" placeholder="เลือกวันเกิด" />
 	</div>
 
 	<div class="flex flex-col w-full gap-1 mt-4">

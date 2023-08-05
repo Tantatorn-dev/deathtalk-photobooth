@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 .button-primary {
-	@apply w-full p-2 text-white bg-black border rounded-md;
+	@apply w-full p-2 border border-black rounded-md bg-primary;
 }
 
 .button-secondary {
-	@apply w-full p-2 border border-black rounded-md;
+	@apply w-full p-2 border border-black rounded-md bg-secondary;
 }
