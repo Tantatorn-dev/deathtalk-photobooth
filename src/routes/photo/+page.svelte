@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import NextButton from '../../components/common/NextButton.svelte';
 	import ArrowRight from '../../components/common/svg/ArrowRight.svelte';
 	import { avatar } from '../../store';
 
@@ -32,32 +33,26 @@
 	};
 </script>
 
-<div class="flex flex-col items-center gap-2 mt-32">
+<div class="flex flex-col items-center gap-2 pl-16 pr-16 mt-32">
 	{#if avatarValue}
 		<img src={avatarValue} class="w-48" alt="avatar" />
 	{:else}
-		<img src="/placeholder.png" class="w-48" alt="placeholder" />
+		<img src="/placeholder.svg" class="w-48" alt="placeholder" />
 	{/if}
 
-	<div class="flex flex-col w-full gap-1 pl-16 pr-16 mt-4">
+	<div class="flex flex-col w-full gap-1 mt-4">
 		<p class="text-sm">ชื่อ</p>
 		<input type="text" class="button-secondary" />
 	</div>
 
-	<div class="flex flex-col w-full gap-1 pl-16 pr-16 mt-4">
+	<div class="flex flex-col w-full gap-1 mt-4">
 		<p class="text-sm">รูปโปรไฟล์</p>
 		<button class="button-secondary" on:click={onOpenFileInput}>อัปโหลดรูปภาพ</button>
 	</div>
 
-	<button
-		on:click={() => {
-			goto('/intro');
-		}}
-		class="flex flex-row justify-end w-full pr-20 mt-8"
-	>
-		<p>ต่อไป</p>
-		<ArrowRight />
-	</button>
+	<div class="flex flex-row justify-end w-full mt-8">
+		<NextButton target="/intro" />
+	</div>
 </div>
 <input
 	class="hidden"

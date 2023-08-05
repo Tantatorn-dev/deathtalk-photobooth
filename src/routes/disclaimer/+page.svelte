@@ -3,7 +3,7 @@
 	import SplashText from '../../components/common/SplashText.svelte';
 
 	setTimeout(() => {
-		//goto('/photo');
+		goto('/photo');
 	}, 5000);
 </script>
 
