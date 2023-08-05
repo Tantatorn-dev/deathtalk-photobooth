@@ -27,7 +27,7 @@
 
 	setInterval(() => {
 		if(stage === Stage.Portrait) return;
-		if(stage === Stage.Info4) goto('/explore');
+		if(stage === Stage.Info4) goto('/');
 		stage = stage + 1;
 	}, 5000);
 </script>
@@ -48,12 +48,18 @@
 
 		<div class="flex flex-col w-full gap-4 pl-10 pr-10 mt-4">
 			<p class="text-intro">คุณเคยจินตนาการถึงภาพตัวเองตอนตายไหม?</p>
-			<button class="button-primary" on:click={()=>{
-				stage = Stage.Info1;
-			}}>เคย</button>
-			<button class="button-primary" on:click={()=>{
-				stage = Stage.Info1;
-			}}>ไม่เคย</button>
+			<button
+				class="button-primary"
+				on:click={() => {
+					stage = Stage.Info1;
+				}}>เคย</button
+			>
+			<button
+				class="button-primary"
+				on:click={() => {
+					stage = Stage.Info1;
+				}}>ไม่เคย</button
+			>
 		</div>
 	</div>
 {:else if stage == Stage.Info1}
@@ -65,7 +71,9 @@
 {:else if stage == Stage.Info2}
 	<VineFrame
 		><div class="container">
-			<p class="text-intro">คนส่วนมาก คิดว่าการพูด หรือทำอะไรเกี่ยวกับความตาย เป็นลางร้าย อัปมงคล และไม่ควรพูดถึง</p>
+			<p class="text-intro">
+				คนส่วนมาก คิดว่าการพูด หรือทำอะไรเกี่ยวกับความตาย เป็นลางร้าย อัปมงคล และไม่ควรพูดถึง
+			</p>
 		</div></VineFrame
 	>
 {:else if stage == Stage.Info3}
@@ -75,11 +83,10 @@
 		</div></VineFrame
 	>
 {:else if stage == Stage.Info4}
-	<VineFrame
-		><div class="container">
-			<p class="text-intro">80% ของคนที่ได้จากไป ไม่มีการวางแผนคาดการณ์ล่วงหน้า</p>
-		</div></VineFrame
-	>
+	<div class="flex flex-col items-center justify-center gap-8 mt-36">
+		<img src="/pie.svg" class="w-36" alt="pie-chart" />
+		<p class="pl-16 pr-16 text-intro">80% ของคนที่ได้จากไป ไม่มีการวางแผนคาดการณ์ล่วงหน้า</p>
+	</div>
 {/if}
 
 <style>
