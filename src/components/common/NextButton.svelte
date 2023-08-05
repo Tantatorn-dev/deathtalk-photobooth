@@ -2,7 +2,7 @@
 	export let target: string;
 
 	import { goto } from '$app/navigation';
-	import ArrowRight from '../photo/ArrowRight.svelte';
+	import ArrowRight from './svg/ArrowRight.svelte';
 </script>
 
 <button

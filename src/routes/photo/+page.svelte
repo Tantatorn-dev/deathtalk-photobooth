@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import ArrowRight from '../../components/photo/ArrowRight.svelte';
+	import ArrowRight from '../../components/common/svg/ArrowRight.svelte';
 	import { avatar } from '../../store';
 
 	let fileinput: HTMLInputElement;
