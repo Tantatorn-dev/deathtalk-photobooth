@@ -1,12 +1,17 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import VineFrame from '../../components/frame/VineFrame.svelte';
-	import { avatar } from '../../store';
+	import { avatar, name } from '../../store';
 
 	let avatarValue: string;
 
 	avatar.subscribe((value) => {
 		avatarValue = value;
+	});
+
+	let nameValue: string;
+	name.subscribe((value) => {
+		nameValue = value;
 	});
 
 	enum Stage {
@@ -30,7 +35,7 @@
 {#if stage == Stage.Hello}
 	<VineFrame
 		><div class="container">
-			<p>สวัสดี โอม</p>
+			<p>สวัสดี {nameValue}</p>
 		</div></VineFrame
 	>
 {:else if stage == Stage.Portrait}

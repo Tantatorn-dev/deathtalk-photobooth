@@ -1,6 +1,6 @@
 <script lang="ts">
 	import NextButton from '../../components/common/NextButton.svelte';
-	import { avatar } from '../../store';
+	import { avatar, name } from '../../store';
 
 	let fileinput: HTMLInputElement;
 
@@ -29,6 +29,10 @@
 			if (e.target) avatar.set(e.target.result as string);
 		};
 	};
+
+	const onUpdateName = (e: Event & { currentTarget: EventTarget & HTMLInputElement }) => {
+		name.set(e.currentTarget.value);
+	};
 </script>
 
 <div class="flex flex-col items-center gap-2 pl-16 pr-16 mt-16">
@@ -40,7 +44,7 @@
 
 	<div class="flex flex-col w-full gap-1 mt-4">
 		<p class="text-sm">ชื่อ</p>
-		<input type="text" class="button-secondary bg-secondary" placeholder="พิมพ์ชื่อ" />
+		<input type="text" on:change={onUpdateName} class="button-secondary bg-secondary" placeholder="พิมพ์ชื่อ" />
 	</div>
 
 	<div class="flex flex-col w-full gap-1 mt-4">
