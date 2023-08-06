@@ -34,7 +34,7 @@
 
 {#if stage == Stage.Hello}
 	<VineFrame
-		><div class="container">
+		><div class="container-intro">
 			<p>สวัสดี {nameValue}</p>
 		</div></VineFrame
 	>
@@ -64,13 +64,13 @@
 	</div>
 {:else if stage == Stage.Info1}
 	<VineFrame
-		><div class="container">
+		><div class="container-intro">
 			<p class="text-intro">เราอาจมีหลายความรู้สึกเกิดขึ้น หลังจากที่ได้เห็นภาพของตัวเอง</p>
 		</div></VineFrame
 	>
 {:else if stage == Stage.Info2}
 	<VineFrame
-		><div class="container">
+		><div class="container-intro">
 			<p class="text-intro">
 				คนส่วนมาก คิดว่าการพูด หรือทำอะไรเกี่ยวกับความตาย เป็นลางร้าย อัปมงคล และไม่ควรพูดถึง
 			</p>
@@ -78,7 +78,7 @@
 	>
 {:else if stage == Stage.Info3}
 	<VineFrame
-		><div class="container">
+		><div class="container-intro">
 			<p class="text-intro">ซึ่งการไม่พูดเรื่องความตาย มีผลเสียมากกว่าที่เราคิด..</p>
 		</div></VineFrame
 	>
@@ -89,8 +89,8 @@
 	</div>
 {/if}
 
-<style>
-	.container {
+<style lang="postcss">
+	.container-intro {
 		@apply flex flex-col items-center justify-center h-full pl-16 pr-16;
 	}
 

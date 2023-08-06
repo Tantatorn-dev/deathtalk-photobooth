@@ -15,13 +15,15 @@
 
 <svelte:window bind:innerWidth={screenWidth} />
 
-{#if screenWidth > 768}
-	<p>Please use mobile device</p>
-{:else}
-	<slot />
-{/if}
+<slot />
 
 <style lang="postcss">
+	@media (min-width: 768px) {
+		:global(body) {
+			@apply w-[480px] h-[800px] border border-slate-400;
+		}
+	}
+
 	:global(body) {
 		font-family: 'IBM Plex Sans Thai Looped', sans-serif;
 	}
