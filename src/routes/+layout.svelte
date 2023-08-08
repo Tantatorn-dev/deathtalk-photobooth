@@ -18,14 +18,15 @@
 <slot />
 
 <style lang="postcss">
+	:global(body) {
+		@apply h-[100vh] w-[100vw] overflow-hidden;
+		font-family: 'IBM Plex Sans Thai Looped', sans-serif;
+	}
+
 	@media (min-width: 768px) {
 		:global(body) {
 			@apply w-[480px] h-[800px] border border-slate-400;
 		}
-	}
-
-	:global(body) {
-		font-family: 'IBM Plex Sans Thai Looped', sans-serif;
 	}
 
 	:global(html) {
