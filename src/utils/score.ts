@@ -3,6 +3,12 @@
 // C: ประสบการณ์
 // D: ความรู้
 // E: การเข้าถึงความช่วยเหลือ
+export enum Choice {
+	VERY_LITTLE,
+	LITTLE,
+	MEDIUM,
+	MUCH
+}
 
 type Category = 'A' | 'B' | 'C' | 'D' | 'E';
 
