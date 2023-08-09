@@ -1,4 +1,5 @@
 <script>
+	import NextButton from '../../../components/common/NextButton.svelte';
 	import Header from '../../../components/explore/Header.svelte';
 	import Question from '../../../components/explore/Question.svelte';
 
@@ -12,7 +13,22 @@
 		subtitle="ความสามารถในการพูดเรื่องความตายกับคนรอบข้าง"
 	/>
 	<div class="flex flex-col gap-10 mt-10">
-		<Question question="1. คุณกล้าพูดเรื่องความตายกับเพื่อนสนิทมากแค่ไหน?" />
-		<Question question="2. คุณกล้าพูดเรื่องความตายกับเด็กมากแค่ไหน?" />
+		{#if index == 0}
+			<Question question="1. คุณกล้าพูดเรื่องความตายกับเพื่อนสนิทมากแค่ไหน?" />
+			<Question question="2. คุณกล้าพูดเรื่องความตายกับเด็กมากแค่ไหน?" />
+			<div class="flex justify-end">
+				<NextButton
+					onClick={() => {
+						index = 1;
+					}}
+				/>
+			</div>
+		{:else if index == 1}
+			<Question question="3. คุณพูดเรื่องความตายกับเพื่อนสนิท?" />
+			<Question question="4. คุณพูดเรื่องความตายกับเด็ก?" />
+			<div class="flex justify-end">
+				<NextButton target="/explore/2" />
+			</div>
+		{/if}
 	</div>
 </div>

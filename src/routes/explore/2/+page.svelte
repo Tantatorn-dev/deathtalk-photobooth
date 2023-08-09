@@ -1,0 +1,34 @@
+<script>
+	import NextButton from '../../../components/common/NextButton.svelte';
+	import Header from '../../../components/explore/Header.svelte';
+	import Question from '../../../components/explore/Question.svelte';
+
+	let index = 0;
+</script>
+
+<div class="flex flex-col gap-3 mt-20 ml-8 mr-8">
+	<Header
+		chapter={2}
+		title="การช่วยเหลือผู้ป่วย"
+		subtitle="ความสามารถของคุณหากอยู่ในบทบาทที่ต้องช่วยเหลือผู้ป่วย"
+	/>
+	<div class="flex flex-col gap-10 mt-10">
+		{#if index == 0}
+			<Question question="1. คุณสามารถหาอาหารหรือป้อนอาหารให้พวกเขาได้ไหม?" />
+			<Question question="2. คุณสามารถอาบน้ำให้เขาได้ไหม?" />
+			<div class="flex justify-end">
+				<NextButton
+					onClick={() => {
+						index = 1;
+					}}
+				/>
+			</div>
+		{:else if index == 1}
+			<Question question="3. คุณสามารถยกหรือเคลื่อนย้ายพวกเขาได้ไหม?" />
+			<Question question="4. คุณสามารถฉีดยาให้พวกเขาได้ไหม?" />
+			<div class="flex justify-end">
+				<NextButton target="/explore/intermission" />
+			</div>
+		{/if}
+	</div>
+</div>

@@ -1,5 +1,6 @@
 <script lang="ts">
-	export let target: string;
+	export let target: string = '';
+	export let onClick = () => {};
 
 	import { goto } from '$app/navigation';
 	import ArrowRight from './svg/ArrowRight.svelte';
@@ -7,7 +8,9 @@
 
 <button
 	on:click={() => {
-		goto(target);
+		onClick();
+
+		if (target) goto(target);
 	}}
 	class="flex flex-row"
 >
