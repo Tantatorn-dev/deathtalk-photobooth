@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
+	import NextButton from '../../components/common/NextButton.svelte';
 	import VineFrame from '../../components/frame/VineFrame.svelte';
 	import { avatar, name } from '../../store';
 
@@ -26,8 +26,8 @@
 	let stage: Stage = Stage.Hello;
 
 	setInterval(() => {
-		if(stage === Stage.Portrait) return;
-		if(stage === Stage.Info4) goto('/');
+		if (stage === Stage.Portrait) return;
+		if (stage === Stage.Info4) return;
 		stage = stage + 1;
 	}, 5000);
 </script>
@@ -86,6 +86,7 @@
 	<div class="flex flex-col items-center justify-center gap-8 mt-36">
 		<img src="/pie.svg" class="w-36" alt="pie-chart" />
 		<p class="pl-16 pr-16 text-intro">80% ของคนที่ได้จากไป ไม่มีการวางแผนคาดการณ์ล่วงหน้า</p>
+		<NextButton target="/explore">ต่อไป</NextButton>
 	</div>
 {/if}
 
