@@ -29,7 +29,7 @@
 			<Question question="3. ประสบการณ์เหล่านั้นทำให้คุณเข้าใจความตายมากขึ้น?" />
 			<Question question="4. ประสบการณ์เหล่านั้นทำให้คุณเข้าใจตัวเองมากขึ้น?" />
 			<div class="flex justify-end">
-				<NextButton target="/explore/2" />
+				<NextButton target="/explore/4" />
 			</div>
 		{/if}
 	</div>
