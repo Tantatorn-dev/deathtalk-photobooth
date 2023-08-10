@@ -3,7 +3,7 @@
 
 	export let chapter: number;
 	export let title: string;
-	export let subtitle: string;
+	export let subtitle: string = '';
 </script>
 
 <div class="flex flex-col items-center justify-center">
