@@ -27,7 +27,7 @@
 			<Question question="3. คุณสามารถยกหรือเคลื่อนย้ายพวกเขาได้ไหม?" />
 			<Question question="4. คุณสามารถฉีดยาให้พวกเขาได้ไหม?" />
 			<div class="flex justify-end">
-				<NextButton target="/explore/intermission" />
+				<NextButton target="/explore/3" />
 			</div>
 		{/if}
 	</div>
