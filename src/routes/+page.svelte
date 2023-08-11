@@ -5,7 +5,8 @@
 
 <div class="relative w-full h-full">
 	<div class="flex flex-col gap-3 ml-8 mr-8">
-		<p class="mt-20 text-4xl text-center">ยินดีต้อนรับสู่ <br /></p>
+		<img src="/deathtalk.svg" alt="family" class="mt-5 mb-5 ml-auto mr-auto" />
+		<p class="text-4xl text-center">ยินดีต้อนรับสู่ <br /></p>
 		<SplashText className="text-4xl text-center p-1 pb-2">Death Talk</SplashText>
 		<p class="mt-8 font-light text-center">คุณเตรียมพร้อมสำหรับ <br /> “ความตาย” มากน้อยขนาดไหน?</p>
 		<div class="flex flex-row justify-center mt-10">

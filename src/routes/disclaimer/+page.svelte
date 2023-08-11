@@ -4,7 +4,8 @@
 </script>
 
 <div class="relative w-full h-full">
-	<div class="flex flex-col gap-3 mt-20 ml-4 mr-4">
+	<div class="flex flex-col gap-3 ml-4 mr-4">
+		<img src="/deathtalk.svg" alt="family" class="mt-5 mb-5 ml-auto mr-auto" />
 		<SplashText className="text-3xl text-center">คำเตือน</SplashText>
 		<p class="mt-4 text-xs text-center">
 			เว็บไซต์นี้มีเนื้อหาเกี่ยวกับความตาย หากคุณรู้สึกไม่โอเค <br /> “สามารถหยุดเล่นได้ตลอดเวลา”
