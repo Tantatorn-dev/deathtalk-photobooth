@@ -7,7 +7,7 @@
 	let index = 0;
 </script>
 
-<VineFrame>
+<VineFrame hideVine2={index === 1}>
 	<div class="flex flex-col gap-3 ml-8 mr-8">
 		<div class="mt-10">
 			<Header chapter={5} title="การเข้าถึงความช่วยเหลือ" />
@@ -28,7 +28,7 @@
 				<Question question="4. คุณสามารถเข้าถึงการสนับสนุนที่เหมาะสมทางวัฒนธรรม?" />
 				<Question question="5. คุณสามารถเข้าถึงการสนับสนุนทางอารมณ์สำหรับตัวเอง?" />
 				<div class="flex justify-end">
-					<NextButton target="/result" />
+					<NextButton target="/explore/thanks" />
 				</div>
 			{/if}
 		</div>

@@ -7,12 +7,14 @@
 </script>
 
 <div class="relative w-full h-full">
-	<div class="flex flex-col gap-3 mt-20 ml-8 mr-8">
-		<Header
-			chapter={2}
-			title="การช่วยเหลือผู้ป่วย"
-			subtitle="ความสามารถของคุณหากอยู่ในบทบาทที่ต้องช่วยเหลือผู้ป่วย"
-		/>
+	<div class="flex flex-col gap-3 ml-8 mr-8">
+		<div class="mt-5">
+			<Header
+				chapter={2}
+				title="การช่วยเหลือผู้ป่วย"
+				subtitle="ความสามารถของคุณหากอยู่ในบทบาทที่ต้องช่วยเหลือผู้ป่วย"
+			/>
+		</div>
 		<div class="flex flex-col gap-10 mt-10">
 			{#if index == 0}
 				<Question question="1. คุณสามารถหาอาหารหรือป้อนอาหารให้พวกเขาได้ไหม?" />
@@ -33,7 +35,7 @@
 			{/if}
 		</div>
 	</div>
-	<div class="absolute w-full bottom-20">
+	<div class="absolute bottom-0 w-full -z-10">
 		<img src="/misc/rose.svg" class="ml-auto mr-auto" alt="rose" />
 	</div>
 </div>

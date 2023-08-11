@@ -7,12 +7,14 @@
 </script>
 
 <div class="relative w-full h-full">
-	<div class="flex flex-col gap-3 mt-20 ml-8 mr-8">
-		<Header
-			chapter={3}
-			title="ประสบการณ์ต่าง ๆ"
-			subtitle="ประสบการณ์เกี่ยวกับความตาย เช่น การสูญเสียของคนรอบข้าง"
-		/>
+	<div class="flex flex-col gap-3 ml-8 mr-8">
+		<div class="mt-5">
+			<Header
+				chapter={3}
+				title="ประสบการณ์ต่าง ๆ"
+				subtitle="ประสบการณ์เกี่ยวกับความตาย เช่น การสูญเสียของคนรอบข้าง"
+			/>
+		</div>
 		<div class="flex flex-col gap-10 mt-10">
 			{#if index == 0}
 				<Question question="1. ประสบการณ์เหล่านั้น ทำให้คุณแข็งแกร่งขึ้นไหม?" />
@@ -35,5 +37,5 @@
 			{/if}
 		</div>
 	</div>
-	<img src="/misc/ambulance.svg" class="absolute left-0 bottom-20" alt="ambulance" />
+	<img src="/misc/ambulance.svg" class="absolute bottom-0 left-0 -z-10" alt="ambulance" />
 </div>
