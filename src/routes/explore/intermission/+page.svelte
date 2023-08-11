@@ -2,7 +2,7 @@
 	import { goto } from '$app/navigation';
 	import VineFrame from '../../../components/frame/VineFrame.svelte';
 
-	setInterval(() => {
+	setTimeout(() => {
 		goto('/explore/5');
 	}, 5000);
 </script>

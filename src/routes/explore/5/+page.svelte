@@ -9,7 +9,7 @@
 
 <VineFrame hideVine2={index === 1}>
 	<div class="flex flex-col gap-3 ml-8 mr-8">
-		<div class="mt-10">
+		<div class="mt-5">
 			<Header chapter={5} title="การเข้าถึงความช่วยเหลือ" />
 		</div>
 		<div class="flex flex-col gap-5 mt-10">
