@@ -16,22 +16,35 @@
 	});
 
 	enum Stage {
+		Init,
 		Hello,
 		Portrait,
 		Info1,
 		Info2
 	}
 
-	let stage: Stage = Stage.Info1;
+	let stage: Stage = Stage.Init;
 
-	setInterval(() => {
-		if (stage === Stage.Portrait) return;
-		if (stage === Stage.Info2) return;
-		stage = stage + 1;
-	}, 20000);
+	$: if (stage === Stage.Init) {
+		setTimeout(() => {
+			stage = Stage.Hello;
+		}, 1000);
+	} 
+	else if (stage === Stage.Hello) {
+		setTimeout(() => {
+			stage = Stage.Portrait;
+		}, 2000);
+	}
+	else if (stage === Stage.Info1) {
+		setTimeout(() => {
+			stage = Stage.Info2;
+		}, 12000);
+	}
 </script>
 
-{#if stage == Stage.Hello}
+{#if stage == Stage.Init}
+	<VineFrame />
+{:else if stage == Stage.Hello}
 	<VineFrame
 		><div class="container-intro">
 			<p>สวัสดี {nameValue}</p>
