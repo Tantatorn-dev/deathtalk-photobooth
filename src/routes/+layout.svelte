@@ -19,12 +19,14 @@
 
 <style lang="postcss">
 	:global(body) {
+		@apply bg-[url('/bg.png')] bg-cover bg-center;
 		@apply h-[100vh] w-[100vw] overflow-hidden;
 		font-family: 'IBM Plex Sans Thai Looped', sans-serif;
 	}
 
 	@media (min-width: 768px) {
 		:global(body) {
+			@apply bg-[url('/bg.png')] bg-cover bg-center;
 			@apply w-[480px] h-[800px] border border-slate-400;
 		}
 	}
