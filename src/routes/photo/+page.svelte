@@ -1,13 +1,23 @@
 <script lang="ts">
 	import NextButton from '../../components/common/NextButton.svelte';
-	import { avatar, name } from '../../store';
+	import { avatar, birthDate, name } from '../../store';
 
 	let fileinput: HTMLInputElement;
 
 	let avatarValue: string;
+	let nameValue: string;
+	let birthDateValue: string;
 
 	avatar.subscribe((value) => {
 		avatarValue = value;
+	});
+
+	name.subscribe((value) => {
+		nameValue = value;
+	});
+
+	birthDate.subscribe((value) => {
+		birthDateValue = value;
 	});
 
 	const onOpenFileInput = () => {
@@ -33,6 +43,10 @@
 	const onUpdateName = (e: Event & { currentTarget: EventTarget & HTMLInputElement }) => {
 		name.set(e.currentTarget.value);
 	};
+
+	const onUpdateBirthDate = (e: Event & { currentTarget: EventTarget & HTMLInputElement }) => {
+		birthDate.set(e.currentTarget.value);
+	};
 </script>
 
 <div class="flex flex-col items-center gap-2 pl-16 pr-16 mt-16">
@@ -43,13 +57,23 @@
 	{/if}
 
 	<div class="flex flex-col w-full gap-1 mt-4">
-		<p class="text-sm">ชื่อ</p>
-		<input type="text" on:change={onUpdateName} class="button-secondary bg-secondary" placeholder="พิมพ์ชื่อ" />
+		<p class="text-sm">ชื่อ*</p>
+		<input
+			type="text"
+			on:input={onUpdateName}
+			class="button-secondary bg-secondary"
+			placeholder="พิมพ์ชื่อ"
+		/>
 	</div>
 
 	<div class="flex flex-col w-full gap-1 mt-4">
-		<p class="text-sm">วันเกิด</p>
-		<input type="text" class="button-secondary bg-secondary" placeholder="เลือกวันเกิด" />
+		<p class="text-sm">วันเกิด*</p>
+		<input
+			type="date"
+			on:input={onUpdateBirthDate}
+			class="button-secondary bg-secondary"
+			placeholder="เลือกวันเกิด"
+		/>
 	</div>
 
 	<div class="flex flex-col w-full gap-1 mt-4">
@@ -58,7 +82,7 @@
 	</div>
 
 	<div class="flex flex-row justify-end w-full mt-8">
-		<NextButton target="/intro" />
+		<NextButton target="/intro" disabled={!nameValue || !birthDateValue} />
 	</div>
 </div>
 <input
