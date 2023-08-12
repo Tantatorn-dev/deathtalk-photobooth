@@ -1,6 +1,7 @@
 <script lang="ts">
 	import NextButton from '../../components/common/NextButton.svelte';
 	import VineFrame from '../../components/frame/VineFrame.svelte';
+	import IntroText from '../../components/intro/IntroText.svelte';
 	import { avatar, name } from '../../store';
 
 	let avatarValue: string;
@@ -15,31 +16,42 @@
 	});
 
 	enum Stage {
+		Init,
 		Hello,
 		Portrait,
 		Info1,
-		Info2,
-		Info3,
-		Info4
+		Info2
 	}
 
-	let stage: Stage = Stage.Hello;
+	let stage: Stage = Stage.Init;
 
-	setInterval(() => {
-		if (stage === Stage.Portrait) return;
-		if (stage === Stage.Info4) return;
-		stage = stage + 1;
-	}, 5000);
+	$: if (stage === Stage.Init) {
+		setTimeout(() => {
+			stage = Stage.Hello;
+		}, 1000);
+	} 
+	else if (stage === Stage.Hello) {
+		setTimeout(() => {
+			stage = Stage.Portrait;
+		}, 2000);
+	}
+	else if (stage === Stage.Info1) {
+		setTimeout(() => {
+			stage = Stage.Info2;
+		}, 12000);
+	}
 </script>
 
-{#if stage == Stage.Hello}
+{#if stage == Stage.Init}
+	<VineFrame />
+{:else if stage == Stage.Hello}
 	<VineFrame
 		><div class="container-intro">
 			<p>สวัสดี {nameValue}</p>
 		</div></VineFrame
 	>
 {:else if stage == Stage.Portrait}
-	<div class="flex flex-col items-center gap-2 mt-32">
+	<div class="flex flex-col items-center gap-2 pt-32">
 		{#if avatarValue}
 			<img src={avatarValue} class="w-48" alt="avatar" />
 		{:else}
@@ -65,25 +77,11 @@
 {:else if stage == Stage.Info1}
 	<VineFrame
 		><div class="container-intro">
-			<p class="text-intro">เราอาจมีหลายความรู้สึกเกิดขึ้น หลังจากที่ได้เห็นภาพของตัวเอง</p>
+			<IntroText />
 		</div></VineFrame
 	>
 {:else if stage == Stage.Info2}
-	<VineFrame
-		><div class="container-intro">
-			<p class="text-intro">
-				คนส่วนมาก คิดว่าการพูด หรือทำอะไรเกี่ยวกับความตาย เป็นลางร้าย อัปมงคล และไม่ควรพูดถึง
-			</p>
-		</div></VineFrame
-	>
-{:else if stage == Stage.Info3}
-	<VineFrame
-		><div class="container-intro">
-			<p class="text-intro">ซึ่งการไม่พูดเรื่องความตาย มีผลเสียมากกว่าที่เราคิด..</p>
-		</div></VineFrame
-	>
-{:else if stage == Stage.Info4}
-	<div class="flex flex-col items-center justify-center gap-8 mt-36">
+	<div class="flex flex-col items-center justify-center gap-8 pt-36">
 		<img src="/pie.svg" class="w-36" alt="pie-chart" />
 		<p class="pl-16 pr-16 text-intro">80% ของคนที่ได้จากไป ไม่มีการวางแผนคาดการณ์ล่วงหน้า</p>
 		<NextButton target="/explore">ต่อไป</NextButton>
