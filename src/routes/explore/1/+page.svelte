@@ -7,7 +7,7 @@
 </script>
 
 <div class="relative w-full h-full">
-	<div class="flex flex-col gap-3 ml-8 mr-8">
+	<div class="z-20 flex flex-col gap-3 ml-8 mr-8">
 		<div class="mt-5">
 			<Header
 				chapter={1}
@@ -35,5 +35,5 @@
 			{/if}
 		</div>
 	</div>
-	<img src="/misc/family.svg" alt="family" class="absolute bottom-0 w-full -z-10" />
+	<img src="/misc/family.svg" alt="family" class="absolute bottom-0 z-10 w-full" />
 </div>

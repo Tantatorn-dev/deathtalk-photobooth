@@ -19,11 +19,11 @@
 	}
 
 	.vine1 {
-		@apply fixed top-0 left-0 -z-10;
+		@apply fixed top-0 left-0;
 	}
 
 	.vine2 {
-		@apply fixed bottom-0 right-0 -z-10;
+		@apply fixed bottom-0 right-0;
 	}
 
 	@media (min-width: 768px) {

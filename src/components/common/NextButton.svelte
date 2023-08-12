@@ -12,7 +12,7 @@
 
 		if (target) goto(target);
 	}}
-	class="flex flex-row"
+	class="z-20 flex flex-row"
 >
 	<p>ต่อไป</p>
 	<ArrowRight />

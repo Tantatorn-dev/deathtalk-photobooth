@@ -37,5 +37,5 @@
 			{/if}
 		</div>
 	</div>
-	<img src="/misc/ambulance.svg" class="absolute bottom-0 left-0 -z-10" alt="ambulance" />
+	<img src="/misc/ambulance.svg" class="absolute bottom-0 left-0" alt="ambulance" />
 </div>

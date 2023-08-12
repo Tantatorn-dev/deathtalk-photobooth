@@ -35,7 +35,7 @@
 			{/if}
 		</div>
 	</div>
-	<div class="absolute bottom-0 w-full -z-10">
+	<div class="absolute bottom-0 z-10 w-full">
 		<img src="/misc/rose.svg" class="ml-auto mr-auto" alt="rose" />
 	</div>
 </div>
