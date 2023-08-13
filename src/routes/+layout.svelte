@@ -27,7 +27,7 @@
 	@media (min-width: 768px) {
 		:global(body) {
 			@apply bg-[url('/bg.png')] bg-cover bg-center;
-			@apply w-[480px] h-[800px] border border-slate-400;
+			@apply w-[375px] h-[667px] border border-slate-400;
 		}
 	}
 

@@ -14,5 +14,5 @@
 		</div>
 	</div>
 	<img src="/misc/sun.svg" alt="family" class="absolute bottom-48 right-20" />
-	<img src="/misc/mountain.svg" alt="family" class="absolute bottom-0 right-0" />
+	<img src="/misc/mountain.svg" alt="family" class="absolute bottom-0 right-0 w-full" />
 </div>
