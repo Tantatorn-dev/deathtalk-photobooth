@@ -1,5 +1,6 @@
 <script lang="ts">
-	import NextButton from '../../components/common/NextButton.svelte';
+	import Frame from '../../components/common/Frame.svelte';
+import NextButton from '../../components/common/NextButton.svelte';
 	import VineFrame from '../../components/frame/VineFrame.svelte';
 	import IntroText from '../../components/intro/IntroText.svelte';
 	import { avatar, name } from '../../store';
@@ -23,7 +24,7 @@
 		Info2
 	}
 
-	let stage: Stage = Stage.Init;
+	let stage: Stage = Stage.Portrait;
 
 	$: if (stage === Stage.Init) {
 		setTimeout(() => {
@@ -51,15 +52,15 @@
 		</div></VineFrame
 	>
 {:else if stage == Stage.Portrait}
-	<div class="flex flex-col items-center gap-2 pt-32">
+	<div class="flex flex-col items-center gap-2 pt-10">
 		{#if avatarValue}
-			<img src={avatarValue} class="w-48" alt="avatar" />
+			<Frame src={avatarValue} />
 		{:else}
-			<img src="/placeholder.svg" class="w-48" alt="placeholder" />
+			<Frame src="/placeholder.svg" />
 		{/if}
 
 		<div class="flex flex-col w-full gap-4 pl-10 pr-10 mt-4">
-			<p class="text-intro">คุณเคยจินตนาการถึงภาพตัวเองตอนตายไหม?</p>
+			<p class="text-intro">เคยนึกถึงภาพนี้มาก่อนไหม?</p>
 			<button
 				class="button-primary"
 				on:click={() => {

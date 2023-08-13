@@ -51,9 +51,9 @@
 
 <div class="flex flex-col items-center gap-2 pl-16 pr-16 mt-16">
 	{#if avatarValue}
-		<img src={avatarValue} class="w-48" alt="avatar" />
+		<img src={avatarValue} class="w-48 h-48" alt="avatar" />
 	{:else}
-		<img src="/placeholder.svg" class="w-48" alt="placeholder" />
+		<img src="/placeholder.svg" class="w-48 h-48" alt="placeholder" />
 	{/if}
 
 	<div class="flex flex-col w-full gap-1 mt-4">
