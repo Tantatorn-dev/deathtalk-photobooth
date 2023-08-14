@@ -24,7 +24,7 @@ import NextButton from '../../components/common/NextButton.svelte';
 		Info2
 	}
 
-	let stage: Stage = Stage.Portrait;
+	let stage: Stage = Stage.Init;
 
 	$: if (stage === Stage.Init) {
 		setTimeout(() => {
