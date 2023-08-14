@@ -15,15 +15,20 @@
 
 <svelte:window bind:innerWidth={screenWidth} />
 
-{#if screenWidth > 768}
-	<p>Please use mobile device</p>
-{:else}
-	<slot />
-{/if}
+<slot />
 
 <style lang="postcss">
 	:global(body) {
+		@apply bg-[url('/bg.png')] bg-cover bg-center;
+		@apply h-[100vh] w-[100vw] overflow-hidden;
 		font-family: 'IBM Plex Sans Thai Looped', sans-serif;
+	}
+
+	@media (min-width: 768px) {
+		:global(body) {
+			@apply bg-[url('/bg.png')] bg-cover bg-center;
+			@apply w-[375px] h-[667px] border border-slate-400;
+		}
 	}
 
 	:global(html) {

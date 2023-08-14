@@ -10,7 +10,7 @@
 
 <style>
 	.text-splash {
-		background: url('/splash.svg');
+		background: url('/splash/splash.svg');
 		background-size: contain;
 		background-repeat: no-repeat;
 		background-position: center;
