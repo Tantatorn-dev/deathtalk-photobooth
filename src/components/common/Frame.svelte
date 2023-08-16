@@ -9,7 +9,7 @@
 	let birthDateValue = new Date();
 
 	birthDate.subscribe((value) => {
-		birthDateValue = new Date(value);
+		if (value) birthDateValue = new Date(value);
 	});
 
 	let nameValue: string;
