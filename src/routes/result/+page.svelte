@@ -1,4 +1,5 @@
 <script>
+	import { goto } from '$app/navigation';
 	import SplashText from '../../components/common/SplashText.svelte';
 	import FacebookShareButton from '../../components/result/FacebookShareButton.svelte';
 	import FrameSelector from '../../components/result/FrameSelector.svelte';
@@ -19,5 +20,7 @@
 			<FacebookShareButton />
 		</div>
 	</div>
-	<button class="absolute bottom-0 w-full pt-4 pb-4 text-white bg-black">เกี่ยวกับเรา</button>
+	<button on:click={()=>{
+		goto('https://facebook.com/DeathTalkative')
+	}} class="absolute bottom-0 w-full pt-4 pb-4 text-white bg-black">เกี่ยวกับเรา</button>
 </div>
