@@ -20,14 +20,14 @@
 <style lang="postcss">
 	:global(body) {
 		@apply bg-[url('/bg.png')] bg-cover bg-center;
-		@apply h-[100vh] w-[100vw] overflow-hidden;
+		@apply h-[100vh] w-[100vw] overflow-auto;
 		font-family: 'IBM Plex Sans Thai Looped', sans-serif;
 	}
 
 	@media (min-width: 768px) {
 		:global(body) {
 			@apply bg-[url('/bg.png')] bg-cover bg-center;
-			@apply w-[375px] h-[667px] border border-slate-400;
+			@apply w-[390px] h-[844px] border border-slate-400 overflow-auto;
 		}
 	}
 
