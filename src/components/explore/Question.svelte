@@ -1,9 +1,32 @@
 <script lang="ts">
-	import { Choice } from '../../utils/score';
+	import { Choice, answers, type Answer } from '../../store';
 
 	export let question = '';
+	export let name: string;
 
 	let selected: Choice | null = null;
+
+	let answersValue: Answer[] = [];
+	answers.subscribe((value) => {
+		answersValue = value;
+	});
+
+	const onSelect = (choice: Choice) => {
+		selected = choice;
+
+		// Update answers array
+		const index = answersValue.findIndex((answer) => answer.name === name);
+		if (index !== -1) {
+			answersValue[index].choice = selected;
+		} else {
+			answersValue.push({
+				name: name,
+				choice: selected
+			});
+		}
+
+		answers.set(answersValue);
+	};
 </script>
 
 <div class="flex flex-col gap-2">
@@ -15,7 +38,7 @@
 					<img src="/check.svg" alt="check" />
 				</div>
 			{:else}
-				<button class="choicebox" on:click={() => (selected = Choice.VERY_LITTLE)} />
+				<button class="choicebox" on:click={()=>onSelect(Choice.VERY_LITTLE)} />
 			{/if}
 			<p class="label">น้อยมาก</p>
 		</div>
@@ -26,7 +49,7 @@
 					<img src="/check.svg" alt="check" />
 				</div>
 			{:else}
-				<button class="choicebox" on:click={() => (selected = Choice.LITTLE)} />
+				<button class="choicebox" on:click={()=>onSelect(Choice.LITTLE)} />
 			{/if}
 			<p class="label">น้อย</p>
 		</div>
@@ -37,7 +60,7 @@
 					<img src="/check.svg" alt="check" />
 				</div>
 			{:else}
-				<button class="choicebox" on:click={() => (selected = Choice.MEDIUM)} />
+				<button class="choicebox" on:click={()=>onSelect(Choice.MEDIUM)} />
 			{/if}
 			<p class="label">ปานกลาง</p>
 		</div>
@@ -48,7 +71,7 @@
 					<img src="/check.svg" alt="check" />
 				</div>
 			{:else}
-				<button class="choicebox" on:click={() => (selected = Choice.MUCH)} />
+				<button class="choicebox" on:click={()=>onSelect(Choice.MUCH)} />
 			{/if}
 			<p class="label">มาก</p>
 		</div>

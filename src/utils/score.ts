@@ -1,14 +1,11 @@
-// A: การพูดคุย
-// B: การช่วยเหลือ
-// C: ประสบการณ์
-// D: ความรู้
-// E: การเข้าถึงความช่วยเหลือ
-export enum Choice {
-	VERY_LITTLE,
-	LITTLE,
-	MEDIUM,
-	MUCH
-}
+import { Choice, type Answer } from "../store";
+
+export const choiceScoreMap = {
+	[Choice.VERY_LITTLE]: 1,
+	[Choice.LITTLE]: 2,
+	[Choice.MEDIUM]: 3,
+	[Choice.MUCH]: 4
+};
 
 type Category = 'A' | 'B' | 'C' | 'D' | 'E';
 
@@ -46,4 +43,10 @@ export const sumScore = (myScore: CategoryScore[]) => {
 
 		return acc + (cur.score * 10) / (maxScore?.score || 1);
 	}, 0);
+};
+
+export const isAllAnswered = (answers: Answer[], names: string[]) => {
+	const answeredNames = answers.map((answer) => answer.name);
+	
+	return names.every((name) => answeredNames.includes(name));
 };
