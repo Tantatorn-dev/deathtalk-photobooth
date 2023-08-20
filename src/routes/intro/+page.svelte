@@ -54,9 +54,9 @@ import NextButton from '../../components/common/NextButton.svelte';
 {:else if stage == Stage.Portrait}
 	<div class="flex flex-col items-center gap-2 pt-10">
 		{#if avatarValue}
-			<Frame src={avatarValue} />
+			<Frame src={avatarValue} showFlower />
 		{:else}
-			<Frame src="/placeholder.svg" />
+			<Frame src="/placeholder.svg" showFlower />
 		{/if}
 
 		<div class="flex flex-col w-full gap-4 pl-10 pr-10 mt-4">

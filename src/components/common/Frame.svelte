@@ -2,13 +2,14 @@
 	import { birthDate, name } from '../../store';
 	import { toThaiDate } from '../../utils/utils';
 	export let src = '';
+	export let showFlower = false;
 
 	const currentDate = new Date();
 
 	let birthDateValue = new Date();
 
 	birthDate.subscribe((value) => {
-		birthDateValue = new Date(value);
+		if (value) birthDateValue = new Date(value);
 	});
 
 	let nameValue: string;
@@ -19,9 +20,13 @@
 </script>
 
 <div class="w-[244px] h-[332px] relative">
-	<img src="/frame.png" class="w-full h-full" alt="frame" />
-	<div class="absolute bottom-0 left-0 right-0 top-12">
-		<img {src} class="ml-auto mr-auto w-36 h-36" alt="avatar" />
+	{#if showFlower}
+		<img src="/misc/b_rose_1.svg" class="absolute z-10 top-20 right-20" alt="rose 1" />
+		<img src="/misc/b_rose_2.svg" class="absolute z-10 top-20 left-24" alt="rose 2" />
+	{/if}
+	<img src="/frame.png" class="absolute z-50 w-full h-full" alt="frame" />
+	<div class="absolute left-10 z-40 w-[167px] h-[245px] bg-white top-10">
+		<img {src} class="mt-2 ml-auto mr-auto w-36 h-36" alt="avatar" />
 		<p class="mt-2 mb-2 text-xs text-center">{nameValue}</p>
 		<p class="text-xs text-center">ชาตะ {toThaiDate(birthDateValue)}</p>
 		<p class="text-xs text-center">มรณะ {toThaiDate(currentDate)}</p>

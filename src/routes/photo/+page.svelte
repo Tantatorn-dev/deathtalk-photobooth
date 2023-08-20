@@ -49,7 +49,7 @@
 	};
 </script>
 
-<div class="flex flex-col items-center gap-2 pl-16 pr-16 mt-16">
+<div class="flex flex-col items-center gap-2 pt-16 pl-16 pr-16">
 	{#if avatarValue}
 		<img src={avatarValue} class="w-48 h-48" alt="avatar" />
 	{:else}
