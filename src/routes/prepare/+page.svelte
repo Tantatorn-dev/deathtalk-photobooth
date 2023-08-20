@@ -3,13 +3,21 @@
 	import SplashText2 from '../../components/common/SplashText2.svelte';
 
 	let index = 0;
-	setInterval(() => {
-		if(index == 2) {
-			goto('/explore');
-		}
+	setTimeout(() => {
+		index = 0;
+	}, 5000)
 
-		index = (index + 1) % 3;
-	}, 3000)
+	setTimeout(() => {
+		index = 1;
+	}, 10000)
+
+	setTimeout(() => {
+		index = 2;
+	}, 15000)
+
+	setTimeout(() => {
+		goto('/explore');
+	}, 20000)
 </script>
 
 <div class="flex flex-col items-center justify-between w-full h-full">
