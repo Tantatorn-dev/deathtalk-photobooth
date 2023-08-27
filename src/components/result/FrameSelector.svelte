@@ -30,11 +30,23 @@
 		const canvas = document.createElement('canvas');
 		const ctx = canvas.getContext('2d');
 
-		canvas.width = 244;
-		canvas.height = 332;
+		const IMG_WIDTH = 400;
+		const IMG_HEIGHT = 500;
+
+		const FRAME_WIDTH = 244;
+		const FRAME_HEIGHT = 332;
+
+		canvas.width = IMG_WIDTH;
+		canvas.height = IMG_HEIGHT;
 
 		const frame = new Image();
 		frame.src = '/frame.png';
+
+		const rose1 = new Image();
+		rose1.src = '/misc/b_rose_1.svg';
+
+		const rose2 = new Image();
+		rose2.src = '/misc/b_rose_2.svg';
 
 		const img = new Image();
 		img.src = avatarValue;
@@ -45,20 +57,27 @@
 			ctx.rect(0, 0, canvas.width, canvas.height);
 			ctx.fill();
 
+			const originX = (canvas.width - FRAME_WIDTH) / 2;
+			const originY = (canvas.height - FRAME_HEIGHT) / 2;
+
 			// draw frame bg
 			ctx.fillStyle = '#fff';
-			ctx.fillRect(40, 40, 180, 250);
+			ctx.fillRect(originX + 40, originY + 40, 180, 250);
 
-			ctx.drawImage(frame, 0, 0);
-			ctx.drawImage(img, 50, 50, 144, 144);
+			ctx.drawImage(frame, originX, originY);
+			ctx.drawImage(img, originX + 50,  originY + 50, 144, 144);
+
+			// draw black bg with roses
+			ctx.drawImage(rose1, IMG_WIDTH - 70, originY + 70);
+			ctx.drawImage(rose2, -150, originY + 70);
 
 			ctx.fillStyle = '#000';
 			ctx.textAlign = 'center';
 			ctx.font = "11.5px IBM Plex Sans Thai Looped";
 
-			ctx.fillText(nameValue, 120, 210);
-			ctx.fillText(`ชาตะ ${toThaiDate(birthDateValue)}`, 120, 230);
-			ctx.fillText(`มรณะ ${toThaiDate(new Date())}`, 120, 250);
+			ctx.fillText(nameValue, originX + 120,  originY + 210);
+			ctx.fillText(`ชาตะ ${toThaiDate(birthDateValue)}`, originX + 120,  originY + 230);
+			ctx.fillText(`มรณะ ${toThaiDate(new Date())}`, originX + 120,  originY + 250);
 
 			const link = document.createElement('a');
 			link.download = 'deathtalkth.png';

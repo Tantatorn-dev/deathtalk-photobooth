@@ -3,6 +3,7 @@
 import NextButton from '../../components/common/NextButton.svelte';
 	import VineFrame from '../../components/frame/VineFrame.svelte';
 	import IntroText from '../../components/intro/IntroText.svelte';
+	import Pie from '../../components/intro/Pie.svelte';
 	import { avatar, name } from '../../store';
 
 	let avatarValue: string;
@@ -24,7 +25,7 @@ import NextButton from '../../components/common/NextButton.svelte';
 		Info2
 	}
 
-	let stage: Stage = Stage.Init;
+	let stage: Stage = Stage.Info1;
 
 	$: if (stage === Stage.Init) {
 		setTimeout(() => {
@@ -83,7 +84,7 @@ import NextButton from '../../components/common/NextButton.svelte';
 	>
 {:else if stage == Stage.Info2}
 	<div class="flex flex-col items-center justify-center gap-8 pt-36">
-		<img src="/pie.svg" class="w-36" alt="pie-chart" />
+		<Pie />
 		<p class="pl-16 pr-16 text-intro">80% ของคนที่ได้จากไป ไม่มีการวางแผนคาดการณ์ล่วงหน้า</p>
 		<NextButton target="/explore">ต่อไป</NextButton>
 	</div>
