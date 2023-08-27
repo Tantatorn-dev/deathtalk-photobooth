@@ -42,6 +42,12 @@
 		const frame = new Image();
 		frame.src = '/frame.png';
 
+		const rose1 = new Image();
+		rose1.src = '/misc/b_rose_1.svg';
+
+		const rose2 = new Image();
+		rose2.src = '/misc/b_rose_2.svg';
+
 		const img = new Image();
 		img.src = avatarValue;
 
@@ -60,6 +66,10 @@
 
 			ctx.drawImage(frame, originX, originY);
 			ctx.drawImage(img, originX + 50,  originY + 50, 144, 144);
+
+			// draw black bg with roses
+			ctx.drawImage(rose1, IMG_WIDTH - 70, originY + 70);
+			ctx.drawImage(rose2, -150, originY + 70);
 
 			ctx.fillStyle = '#000';
 			ctx.textAlign = 'center';
