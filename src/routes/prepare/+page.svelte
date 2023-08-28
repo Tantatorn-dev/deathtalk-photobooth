@@ -55,11 +55,11 @@
 		{/if}
 	</div>
 	{#if index == 0}
-		<img src="/misc/legacy.svg" alt="legacy" />
+		<img src="/misc/legacy.svg" alt="legacy" class="animate-custom-bounce" />
 	{:else if index == 1}
-		<img src="/misc/hand.svg" alt="hand" />
+		<img src="/misc/hand.svg" alt="hand" class="animate-custom-bounce" />
 	{:else if index == 2}
-		<img src="/misc/note_2.svg" alt="baojai note" />
+		<img src="/misc/note_2.svg" alt="baojai note" class="animate-custom-bounce" />
 	{/if}
 </div>
 
@@ -70,5 +70,21 @@
 
 	.next-btn-container {
 		@apply mt-10;
+	}
+
+	.animate-custom-bounce {
+		animation: customBounce 3s infinite;
+	}
+
+	@keyframes customBounce {
+		0%,
+		100% {
+			transform: translateY(50%);
+			animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+		}
+		50% {
+			transform: translateY(0);
+			animation-timing-function: cubic-bezier(0, 0, 1, 1);
+		}
 	}
 </style>
