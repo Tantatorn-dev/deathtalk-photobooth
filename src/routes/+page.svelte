@@ -1,11 +1,26 @@
 <script lang="ts">
-	import FadeWrapper from '../components/common/FadeWrapper.svelte';
+	import FadeWrapper from '../components/common/FadeWrapper/FadeWrapper.svelte';
 	import NextButton from '../components/common/NextButton.svelte';
 	import SplashText from '../components/common/SplashText.svelte';
+	import { goto } from '$app/navigation';
+
+	let isShow = false;
+
+	setTimeout(() => {
+		isShow = true;
+	}, 1000);
+
+	const navigate = () => {
+		isShow = false;
+
+		setTimeout(() => {
+			goto('/disclaimer');
+		}, 2000);
+	};
 </script>
 
 <div class="relative w-full h-full">
-	<FadeWrapper>
+	<FadeWrapper {isShow}>
 		<div class="flex flex-col gap-3 ml-8 mr-8">
 			<img src="/deathtalk.svg" alt="family" class="mt-5 mb-5 ml-auto mr-auto" />
 			<p class="text-4xl text-center">ยินดีต้อนรับสู่ <br /></p>
@@ -14,7 +29,9 @@
 				คุณเตรียมพร้อมสำหรับ <br /> “ความตาย” มากน้อยขนาดไหน?
 			</p>
 			<div class="flex flex-row justify-center mt-10">
-				<NextButton target="/disclaimer" />
+				<NextButton
+					onClick={navigate}
+				/>
 			</div>
 		</div>
 	</FadeWrapper>

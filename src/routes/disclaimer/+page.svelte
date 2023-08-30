@@ -1,11 +1,26 @@
 <script lang="ts">
-	import FadeWrapper from '../../components/common/FadeWrapper.svelte';
+	import { goto } from '$app/navigation';
+	import FadeWrapper from '../../components/common/FadeWrapper/FadeWrapper.svelte';
 	import NextButton from '../../components/common/NextButton.svelte';
 	import SplashText from '../../components/common/SplashText.svelte';
+
+	let isShow = false;
+
+	setTimeout(() => {
+		isShow = true;
+	}, 1000);
+
+	const navigate = () => {
+		isShow = false;
+
+		setTimeout(() => {
+			goto('/photo');
+		}, 2000);
+	};
 </script>
 
 <div class="relative w-full h-full">
-	<FadeWrapper>
+	<FadeWrapper {isShow}>
 		<div class="flex flex-col gap-3 ml-4 mr-4">
 			<img src="/deathtalk.svg" alt="family" class="mt-5 mb-5 ml-auto mr-auto" />
 			<SplashText className="text-3xl text-center">คำเตือน</SplashText>
@@ -13,7 +28,7 @@
 				เว็บไซต์นี้มีเนื้อหาเกี่ยวกับความตาย หากคุณรู้สึกไม่โอเค <br /> “สามารถหยุดเล่นได้ตลอดเวลา”
 			</p>
 			<div class="flex flex-row justify-center mt-20">
-				<NextButton target="/photo" />
+				<NextButton onClick={navigate} />
 			</div>
 		</div>
 	</FadeWrapper>

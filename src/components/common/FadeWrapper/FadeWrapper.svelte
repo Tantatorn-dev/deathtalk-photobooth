@@ -1,11 +1,7 @@
 <script>
 	import { fade } from 'svelte/transition';
 
-	let isShow = false;
-
-	setTimeout(() => {
-		isShow = true;
-	}, 1000);
+	export let isShow = false;
 </script>
 
 {#if isShow}

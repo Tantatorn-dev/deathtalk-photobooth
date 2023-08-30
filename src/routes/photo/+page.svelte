@@ -1,5 +1,6 @@
 <script lang="ts">
-	import FadeWrapper from '../../components/common/FadeWrapper.svelte';
+	import { goto } from '$app/navigation';
+	import FadeWrapper from '../../components/common/FadeWrapper/FadeWrapper.svelte';
 	import NextButton from '../../components/common/NextButton.svelte';
 	import { avatar, birthDate, name } from '../../store';
 
@@ -48,9 +49,23 @@
 	const onUpdateBirthDate = (e: Event & { currentTarget: EventTarget & HTMLInputElement }) => {
 		birthDate.set(e.currentTarget.value);
 	};
+
+	let isShow = false;
+
+	setTimeout(() => {
+		isShow = true;
+	}, 1000);
+
+	const navigate = () => {
+		isShow = false;
+
+		setTimeout(() => {
+			goto('/intro');
+		}, 2000);
+	};
 </script>
 
-<FadeWrapper>
+<FadeWrapper {isShow}>
 	<div class="flex flex-col items-center gap-2 pt-16 pl-16 pr-16">
 		{#if avatarValue}
 			<img src={avatarValue} class="w-48 h-48" alt="avatar" />
@@ -84,7 +99,7 @@
 		</div>
 
 		<div class="flex flex-row justify-end w-full mt-8">
-			<NextButton target="/intro" disabled={!nameValue || !birthDateValue} />
+			<NextButton onClick={navigate} disabled={!nameValue || !birthDateValue} />
 		</div>
 	</div>
 </FadeWrapper>
