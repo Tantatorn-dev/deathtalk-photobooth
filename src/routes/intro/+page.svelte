@@ -59,6 +59,22 @@
 			stage = Stage.Info1;
 		}, 1000);
 	};
+
+	let isShowInfo2 = false;
+
+	$: if (stage === Stage.Info2) {
+		setTimeout(() => {
+			isShowInfo2 = true;
+		}, 1000);
+	}
+
+	const info2ToExplore = () => {
+		isShowInfo2 = false;
+
+		setTimeout(() => {
+			goto('/explore');
+		}, 1000);
+	};
 </script>
 
 {#if stage == Stage.Init}
@@ -92,15 +108,13 @@
 		</div></VineFrame
 	>
 {:else if stage == Stage.Info2}
-	<div class="flex flex-col items-center justify-center gap-8 pt-36">
-		<Pie />
-		<p class="pl-16 pr-16 text-intro">80% ของคนที่ได้จากไป ไม่มีการวางแผนคาดการณ์ล่วงหน้า</p>
-		<NextButton
-			onClick={() => {
-				goto('/explore');
-			}}>ต่อไป</NextButton
-		>
-	</div>
+	<FadeWrapper isShow={isShowInfo2}>
+		<div class="flex flex-col items-center justify-center gap-8 pt-36">
+			<Pie />
+			<p class="pl-16 pr-16 text-intro">80% ของคนที่ได้จากไป ไม่มีการวางแผนคาดการณ์ล่วงหน้า</p>
+			<NextButton onClick={info2ToExplore}>ต่อไป</NextButton>
+		</div>
+	</FadeWrapper>
 {/if}
 
 <style lang="postcss">
