@@ -7,6 +7,7 @@
 	import Question from '../../../components/explore/Question.svelte';
 	import { answers, type Answer } from '../../../store';
 	import { isAllAnswered } from '../../../utils/score';
+	import useFade from '../../../components/common/FadeWrapper/useFade';
 
 	let index = 0;
 
@@ -17,19 +18,24 @@
 
 	let isShow1 = false;
 
-	$: if (index == 0) {
-		setTimeout(() => {
-			isShow1 = true;
-		}, 1000);
-	}
+	const { isShowStore: isShow1Store, enhanceCallback: callback1 } = useFade(() => {
+		index++;
+	});
+
+	isShow1Store.subscribe((value) => {
+		isShow1 = value;
+	});
+
 
 	let isShow2 = false;
 
-	$: if (index == 1) {
-		setTimeout(() => {
-			isShow2 = true;
-		}, 1000);
-	}
+	const { isShowStore: isShow2Store, enhanceCallback: callback2 } = useFade(() => {
+		goto('/explore/2');
+	});
+
+	isShow2Store.subscribe((value) => {
+		isShow2 = value;
+	});
 
 	let isShowImg = false;
 
@@ -55,13 +61,7 @@
 					<div class="flex justify-end">
 						<NextButton
 							disabled={!isAllAnswered(answersValue, ['a1', 'a2'])}
-							onClick={() => {
-								isShow1 = false;
-
-								setTimeout(() => {
-									index = 1;
-								}, 1000);
-							}}
+							onClick={callback1}
 						/>
 					</div>
 				</FadeWrapper>
@@ -72,13 +72,7 @@
 					<div class="flex justify-end">
 						<NextButton
 							disabled={!isAllAnswered(answersValue, ['a3', 'a4'])}
-							onClick={() => {
-								isShow2 = false;
-
-								setTimeout(() => {
-									goto('/explore/2');
-								}, 1000);
-							}}
+							onClick={callback2}
 						/>
 					</div>
 				</FadeWrapper>
