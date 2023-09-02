@@ -1,22 +1,16 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import FadeWrapper from '../../components/common/FadeWrapper/FadeWrapper.svelte';
+	import useFade from '../../components/common/FadeWrapper/useFade';
 	import NextButton from '../../components/common/NextButton.svelte';
 	import SplashText from '../../components/common/SplashText.svelte';
 
+	const {isShowStore, enhanceCallback} = useFade(()=>goto('/photo'));
+
 	let isShow = false;
-
-	setTimeout(() => {
-		isShow = true;
-	}, 1000);
-
-	const navigate = () => {
-		isShow = false;
-
-		setTimeout(() => {
-			goto('/photo');
-		}, 2000);
-	};
+	isShowStore.subscribe((value) => {
+		isShow = value;
+	});
 </script>
 
 <div class="relative w-full h-full">
@@ -28,7 +22,7 @@
 				เว็บไซต์นี้มีเนื้อหาเกี่ยวกับความตาย หากคุณรู้สึกไม่โอเค <br /> “สามารถหยุดเล่นได้ตลอดเวลา”
 			</p>
 			<div class="flex flex-row justify-center mt-20">
-				<NextButton onClick={navigate} />
+				<NextButton onClick={enhanceCallback} />
 			</div>
 		</div>
 	</FadeWrapper>

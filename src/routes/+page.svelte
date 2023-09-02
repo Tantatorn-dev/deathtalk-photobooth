@@ -3,20 +3,14 @@
 	import NextButton from '../components/common/NextButton.svelte';
 	import SplashText from '../components/common/SplashText.svelte';
 	import { goto } from '$app/navigation';
+	import useFade from '../components/common/FadeWrapper/useFade';
+
+	const {isShowStore, enhanceCallback} = useFade(()=>goto('/disclaimer'));
 
 	let isShow = false;
-
-	setTimeout(() => {
-		isShow = true;
-	}, 1000);
-
-	const navigate = () => {
-		isShow = false;
-
-		setTimeout(() => {
-			goto('/disclaimer');
-		}, 2000);
-	};
+	isShowStore.subscribe((value) => {
+		isShow = value;
+	});
 </script>
 
 <div class="relative w-full h-full">
@@ -30,7 +24,7 @@
 			</p>
 			<div class="flex flex-row justify-center mt-10">
 				<NextButton
-					onClick={navigate}
+					onClick={enhanceCallback}
 				/>
 			</div>
 		</div>

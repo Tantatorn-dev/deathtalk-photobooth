@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import FadeWrapper from '../../components/common/FadeWrapper/FadeWrapper.svelte';
+	import useFade from '../../components/common/FadeWrapper/useFade';
 	import NextButton from '../../components/common/NextButton.svelte';
 	import { avatar, birthDate, name } from '../../store';
 
@@ -50,19 +51,12 @@
 		birthDate.set(e.currentTarget.value);
 	};
 
+	const {isShowStore, enhanceCallback} = useFade(()=>goto('/intro'));
+
 	let isShow = false;
-
-	setTimeout(() => {
-		isShow = true;
-	}, 1000);
-
-	const navigate = () => {
-		isShow = false;
-
-		setTimeout(() => {
-			goto('/intro');
-		}, 2000);
-	};
+	isShowStore.subscribe((value) => {
+		isShow = value;
+	});
 </script>
 
 <FadeWrapper {isShow}>
@@ -99,7 +93,7 @@
 		</div>
 
 		<div class="flex flex-row justify-end w-full mt-8">
-			<NextButton onClick={navigate} disabled={!nameValue || !birthDateValue} />
+			<NextButton onClick={enhanceCallback} disabled={!nameValue || !birthDateValue} />
 		</div>
 	</div>
 </FadeWrapper>
