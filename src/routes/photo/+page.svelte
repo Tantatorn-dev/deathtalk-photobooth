@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import Cropper from 'svelte-easy-crop';
 	import FadeWrapper from '../../components/common/FadeWrapper/FadeWrapper.svelte';
 	import useFade from '../../components/common/FadeWrapper/useFade';
 	import NextButton from '../../components/common/NextButton.svelte';
@@ -10,6 +11,12 @@
 	let avatarValue: string;
 	let nameValue: string;
 	let birthDateValue: string;
+
+	let crop = { x: 0, y: 0 };
+	let zoom = 1;
+	let pixelCrop = { x: 0, y: 0, width: 0, height: 0 };
+
+	let isCropped = false;
 
 	avatar.subscribe((value) => {
 		avatarValue = value;
@@ -24,6 +31,7 @@
 	});
 
 	const onOpenFileInput = () => {
+		isCropped = false;
 		fileinput.click();
 	};
 
@@ -39,7 +47,9 @@
 
 		reader.readAsDataURL(image);
 		reader.onload = (e) => {
-			if (e.target) avatar.set(e.target.result as string);
+			if (e.target) {
+				avatar.set(e.target.result as string);
+			}
 		};
 	};
 
@@ -51,7 +61,7 @@
 		birthDate.set(e.currentTarget.value);
 	};
 
-	const {isShowStore, enhanceCallback} = useFade(()=>goto('/intro'));
+	const { isShowStore, enhanceCallback } = useFade(() => goto('/intro'));
 
 	let isShow = false;
 	isShowStore.subscribe((value) => {
@@ -62,7 +72,26 @@
 <FadeWrapper {isShow}>
 	<div class="flex flex-col items-center gap-2 pt-16 pl-16 pr-16">
 		{#if avatarValue}
-			<img src={avatarValue} class="w-48 h-48" alt="avatar" />
+			{#if isCropped}
+				<img src={avatarValue} class="w-48 h-48" alt="avatar" />
+			{:else}
+				<Cropper
+					image={avatarValue}
+					bind:crop
+					bind:zoom
+					aspect={1}
+					on:cropcomplete={({ detail }) => (pixelCrop = detail)}
+				/>
+				<div class="absolute w-full pl-10 pr-10 bottom-20">
+					<button
+						class="button-primary"
+						on:click={async () => {
+							avatar.set(avatarValue);
+							isCropped = true;
+						}}>บันทึก</button
+					>
+				</div>
+			{/if}
 		{:else}
 			<img src="/placeholder.svg" class="w-48 h-48" alt="placeholder" />
 		{/if}
