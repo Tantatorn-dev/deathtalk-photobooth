@@ -18,6 +18,39 @@
 
 	let isCropped = false;
 
+	const onFinishCrop = () => {
+		const canvas = document.createElement('canvas');
+		const ctx = canvas.getContext('2d');
+
+		if (!ctx) return;
+
+		const image = new Image();
+		image.src = avatarValue;
+
+		image.onload = () => {
+			canvas.width = pixelCrop.width;
+			canvas.height = pixelCrop.height;
+
+			ctx.drawImage(
+				image,
+				pixelCrop.x,
+				pixelCrop.y,
+				pixelCrop.width,
+				pixelCrop.height,
+				0,
+				0,
+				pixelCrop.width,
+				pixelCrop.height
+			);
+
+			canvas.toBlob((blob) => {
+				if(blob) avatar.set(URL.createObjectURL(blob));
+			}, 'image/jpeg', 1);
+		};
+		
+		isCropped = true;
+	};
+
 	avatar.subscribe((value) => {
 		avatarValue = value;
 	});
@@ -80,15 +113,12 @@
 					bind:crop
 					bind:zoom
 					aspect={1}
-					on:cropcomplete={({ detail }) => (pixelCrop = detail)}
+					on:cropcomplete={({ detail }) => (pixelCrop = detail.pixels)}
 				/>
 				<div class="absolute w-full pl-10 pr-10 bottom-20">
 					<button
 						class="button-primary"
-						on:click={async () => {
-							avatar.set(avatarValue);
-							isCropped = true;
-						}}>บันทึก</button
+						on:click={onFinishCrop}>บันทึก</button
 					>
 				</div>
 			{/if}
