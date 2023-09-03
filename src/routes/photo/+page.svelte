@@ -43,11 +43,15 @@
 				pixelCrop.height
 			);
 
-			canvas.toBlob((blob) => {
-				if(blob) avatar.set(URL.createObjectURL(blob));
-			}, 'image/jpeg', 1);
+			canvas.toBlob(
+				(blob) => {
+					if (blob) avatar.set(URL.createObjectURL(blob));
+				},
+				'image/jpeg',
+				1
+			);
 		};
-		
+
 		isCropped = true;
 	};
 
@@ -115,7 +119,7 @@
 					aspect={1}
 					on:cropcomplete={({ detail }) => (pixelCrop = detail.pixels)}
 				/>
-				<div class="absolute w-full pl-10 pr-10 bottom-20">
+				<div class="absolute w-48 bottom-10">
 					<button
 						class="button-primary"
 						on:click={onFinishCrop}>บันทึก</button
@@ -151,9 +155,11 @@
 			<button class="button-secondary" on:click={onOpenFileInput}>อัปโหลดรูปภาพ</button>
 		</div>
 
-		<div class="flex flex-row justify-end w-full mt-8">
-			<NextButton onClick={enhanceCallback} disabled={!nameValue || !birthDateValue} />
-		</div>
+		{#if isCropped}
+			<div class="flex flex-row justify-end w-full mt-8">
+				<NextButton onClick={enhanceCallback} disabled={!nameValue || !birthDateValue} />
+			</div>
+		{/if}
 	</div>
 </FadeWrapper>
 <input
