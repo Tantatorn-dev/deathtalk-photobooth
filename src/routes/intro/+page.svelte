@@ -1,10 +1,13 @@
 <script lang="ts">
+	import { fade } from 'svelte/transition';
+	import FadeWrapper from '../../components/common/FadeWrapper/FadeWrapper.svelte';
 	import Frame from '../../components/common/Frame.svelte';
-import NextButton from '../../components/common/NextButton.svelte';
+	import NextButton from '../../components/common/NextButton.svelte';
 	import VineFrame from '../../components/frame/VineFrame.svelte';
 	import IntroText from '../../components/intro/IntroText.svelte';
 	import Pie from '../../components/intro/Pie.svelte';
 	import { avatar, name } from '../../store';
+	import { goto } from '$app/navigation';
 
 	let avatarValue: string;
 
@@ -25,23 +28,53 @@ import NextButton from '../../components/common/NextButton.svelte';
 		Info2
 	}
 
-	let stage: Stage = Stage.Info1;
+	let stage: Stage = Stage.Init;
 
 	$: if (stage === Stage.Init) {
 		setTimeout(() => {
 			stage = Stage.Hello;
 		}, 1000);
-	} 
-	else if (stage === Stage.Hello) {
+	} else if (stage === Stage.Hello) {
 		setTimeout(() => {
 			stage = Stage.Portrait;
 		}, 2000);
-	}
-	else if (stage === Stage.Info1) {
+	} else if (stage === Stage.Info1) {
 		setTimeout(() => {
 			stage = Stage.Info2;
 		}, 12000);
 	}
+
+	let isShowPortrait = false;
+
+	$: if (stage === Stage.Portrait) {
+		setTimeout(() => {
+			isShowPortrait = true;
+		}, 1000);
+	}
+
+	const portraitToInfo1 = () => {
+		isShowPortrait = false;
+
+		setTimeout(() => {
+			stage = Stage.Info1;
+		}, 1000);
+	};
+
+	let isShowInfo2 = false;
+
+	$: if (stage === Stage.Info2) {
+		setTimeout(() => {
+			isShowInfo2 = true;
+		}, 1000);
+	}
+
+	const info2ToExplore = () => {
+		isShowInfo2 = false;
+
+		setTimeout(() => {
+			goto('/explore');
+		}, 1000);
+	};
 </script>
 
 {#if stage == Stage.Init}
@@ -49,33 +82,25 @@ import NextButton from '../../components/common/NextButton.svelte';
 {:else if stage == Stage.Hello}
 	<VineFrame
 		><div class="container-intro">
-			<p>สวัสดี {nameValue}</p>
+			<p in:fade out:fade>สวัสดี {nameValue}</p>
 		</div></VineFrame
 	>
 {:else if stage == Stage.Portrait}
-	<div class="flex flex-col items-center gap-2 pt-10">
-		{#if avatarValue}
-			<Frame src={avatarValue} showFlower />
-		{:else}
-			<Frame src="/placeholder.svg" showFlower />
-		{/if}
+	<FadeWrapper isShow={isShowPortrait}>
+		<div class="flex flex-col items-center gap-2 pt-10">
+			{#if avatarValue}
+				<Frame src={avatarValue} showFlower />
+			{:else}
+				<Frame src="/placeholder.svg" showFlower />
+			{/if}
 
-		<div class="flex flex-col w-full gap-4 pl-10 pr-10 mt-4">
-			<p class="text-intro">เคยนึกถึงภาพนี้มาก่อนไหม?</p>
-			<button
-				class="button-primary"
-				on:click={() => {
-					stage = Stage.Info1;
-				}}>เคย</button
-			>
-			<button
-				class="button-primary"
-				on:click={() => {
-					stage = Stage.Info1;
-				}}>ไม่เคย</button
-			>
+			<div class="flex flex-col w-full gap-4 pl-10 pr-10 mt-4">
+				<p class="text-intro">เคยนึกถึงภาพนี้มาก่อนไหม?</p>
+				<button class="button-primary" on:click={portraitToInfo1}>เคย</button>
+				<button class="button-primary" on:click={portraitToInfo1}>ไม่เคย</button>
+			</div>
 		</div>
-	</div>
+	</FadeWrapper>
 {:else if stage == Stage.Info1}
 	<VineFrame
 		><div class="container-intro">
@@ -83,11 +108,13 @@ import NextButton from '../../components/common/NextButton.svelte';
 		</div></VineFrame
 	>
 {:else if stage == Stage.Info2}
-	<div class="flex flex-col items-center justify-center gap-8 pt-36">
-		<Pie />
-		<p class="pl-16 pr-16 text-intro">80% ของคนที่ได้จากไป ไม่มีการวางแผนคาดการณ์ล่วงหน้า</p>
-		<NextButton target="/explore">ต่อไป</NextButton>
-	</div>
+	<FadeWrapper isShow={isShowInfo2}>
+		<div class="flex flex-col items-center justify-center gap-8 pt-36">
+			<Pie />
+			<p class="pl-16 pr-16 text-intro">80% ของคนที่ได้จากไป ไม่มีการวางแผนคาดการณ์ล่วงหน้า</p>
+			<NextButton onClick={info2ToExplore}>ต่อไป</NextButton>
+		</div>
+	</FadeWrapper>
 {/if}
 
 <style lang="postcss">
