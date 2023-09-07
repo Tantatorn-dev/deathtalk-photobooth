@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
 	import { fade } from 'svelte/transition';
 	import FadeWrapper from '../../../components/common/FadeWrapper/FadeWrapper.svelte';
 	import NextButton from '../../../components/common/NextButton.svelte';
@@ -8,6 +7,7 @@
 	import { answers, type Answer } from '../../../store';
 	import { isAllAnswered } from '../../../utils/score';
 	import useFade from '../../../components/common/FadeWrapper/useFade';
+	import { goto } from '$app/navigation';
 
 	let index = 0;
 
@@ -19,7 +19,7 @@
 	let isShow = false;
 
 	const { isShowStore, enhanceCallback } = useFade(() => {
-		index++;
+		goto(`/explore/3`);
 	});
 
 	isShowStore.subscribe((value) => {
@@ -47,5 +47,5 @@
 			/>
 		</div>
 	</div>
-	<img src="/misc/rose.svg" class="w-full" alt="rose" in:fade />
+	<img src="/misc/rose.svg" class="w-full h-56" alt="rose" in:fade />
 </FadeWrapper>
