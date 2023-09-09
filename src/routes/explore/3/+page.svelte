@@ -9,8 +9,6 @@
 	import { answers, type Answer } from '../../../store';
 	import { isAllAnswered } from '../../../utils/score';
 
-	let index = 0;
-
 	let answersValue: Answer[] = [];
 	answers.subscribe((value) => {
 		answersValue = value;
