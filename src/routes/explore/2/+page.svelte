@@ -10,8 +10,6 @@
 	import { goto } from '$app/navigation';
 	import BackButton from '../../../components/common/BackButton.svelte';
 
-	let index = 0;
-
 	let answersValue: Answer[] = [];
 	answers.subscribe((value) => {
 		answersValue = value;
@@ -42,6 +40,7 @@
 		<Question question="3. คุณสามารถยกหรือเคลื่อนย้ายพวกเขาได้ไหม?" name="b3" />
 		<Question question="4. คุณสามารถฉีดยาให้พวกเขาได้ไหม?" name="b4" />
 		<div class="flex justify-between">
+			<BackButton onClick={() => goto(`/explore/1`)} />
 			<NextButton
 				disabled={!isAllAnswered(answersValue, ['b1', 'b2', 'b3', 'b4'])}
 				onClick={enhanceCallback}

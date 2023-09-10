@@ -8,6 +8,7 @@
 	import Question from '../../../components/explore/Question.svelte';
 	import { answers, type Answer } from '../../../store';
 	import { isAllAnswered } from '../../../utils/score';
+	import BackButton from '../../../components/common/BackButton.svelte';
 
 	let answersValue: Answer[] = [];
 	answers.subscribe((value) => {
@@ -41,7 +42,8 @@
 		/>
 		<Question question="3. ประสบการณ์เหล่านั้นทำให้คุณเข้าใจความตายมากขึ้น?" name="c3" />
 		<Question question="4. ประสบการณ์เหล่านั้นทำให้คุณเข้าใจตัวเองมากขึ้น?" name="c4" />
-		<div class="flex justify-end">
+		<div class="flex justify-between">
+			<BackButton onClick={() => goto(`/explore/2`)} />
 			<NextButton
 				disabled={!isAllAnswered(answersValue, ['c1', 'c2', 'c3', 'c4'])}
 				onClick={enhanceCallback}

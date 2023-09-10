@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import BackButton from '../../../components/common/BackButton.svelte';
 	import FadeWrapper from '../../../components/common/FadeWrapper/FadeWrapper.svelte';
 	import useFade from '../../../components/common/FadeWrapper/useFade';
 	import NextButton from '../../../components/common/NextButton.svelte';
@@ -41,7 +42,8 @@
 			question="6. ฉันรู้เกี่ยวกับการบริจาคที่เจ้าหน้าที่สุสานสามารถทำได้เมื่อสิ้นสุดอายุขัย?"
 			name="d6"
 		/>
-		<div class="flex justify-end">
+		<div class="flex justify-between">
+			<BackButton onClick={() => goto(`/explore/3`)} />
 			<NextButton
 				disabled={!isAllAnswered(answersValue, ['d1', 'd2', 'd3', 'd4', 'd5', 'd6'])}
 				onClick={enhanceCallback}

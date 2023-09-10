@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import BackButton from '../../../components/common/BackButton.svelte';
 	import FadeWrapper from '../../../components/common/FadeWrapper/FadeWrapper.svelte';
 	import useFade from '../../../components/common/FadeWrapper/useFade';
 	import NextButton from '../../../components/common/NextButton.svelte';
@@ -33,7 +34,8 @@
 		<Question question="3. คุณสามารถเข้าถึงอุปกรณ์ที่จำเป็นสำหรับการดูแล?" name="e3" />
 		<Question question="4. คุณสามารถเข้าถึงการสนับสนุนที่เหมาะสมทางวัฒนธรรม?" name="e4" />
 		<Question question="5. คุณสามารถเข้าถึงการสนับสนุนทางอารมณ์สำหรับตัวเอง?" name="e5" />
-		<div class="flex justify-end">
+		<div class="flex justify-between">
+			<BackButton onClick={() => goto(`/explore/4`)} />
 			<NextButton
 				disabled={!isAllAnswered(answersValue, ['e1', 'e2', 'e3', 'e4', 'e5'])}
 				onClick={enhanceCallback}
