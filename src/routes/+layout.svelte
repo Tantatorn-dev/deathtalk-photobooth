@@ -24,18 +24,17 @@
 		@apply bg-[url('/bg.png')] bg-cover bg-center;
 	}
 
-	.app-container {
-		@apply w-[390px] h-[844px] border border-slate-400 overflow-auto;
-	}
-
 	:global(body) {
 		@apply h-[100vh] w-[100vw] overflow-auto;
 		font-family: 'IBM Plex Sans Thai Looped', sans-serif;
 	}
 
+	.app-container {
+		@apply w-full h-full border border-slate-400 overflow-auto;
+	}
 
 	@media (min-width: 768px) {
-		:global(body) {
+		.app-container {
 			@apply w-[390px] h-[844px] border border-slate-400 overflow-auto;
 		}
 	}
