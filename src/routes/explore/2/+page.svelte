@@ -8,6 +8,7 @@
 	import { isAllAnswered } from '../../../utils/score';
 	import useFade from '../../../components/common/FadeWrapper/useFade';
 	import { goto } from '$app/navigation';
+	import BackButton from '../../../components/common/BackButton.svelte';
 
 	let index = 0;
 
@@ -40,7 +41,7 @@
 		<Question question="2. คุณสามารถอาบน้ำให้เขาได้ไหม?" name="b2" />
 		<Question question="3. คุณสามารถยกหรือเคลื่อนย้ายพวกเขาได้ไหม?" name="b3" />
 		<Question question="4. คุณสามารถฉีดยาให้พวกเขาได้ไหม?" name="b4" />
-		<div class="flex justify-end">
+		<div class="flex justify-between">
 			<NextButton
 				disabled={!isAllAnswered(answersValue, ['b1', 'b2', 'b3', 'b4'])}
 				onClick={enhanceCallback}
