@@ -1,20 +1,22 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
 	import { goto } from '$app/navigation';
 	import FadeWrapper from '../../../components/common/FadeWrapper/FadeWrapper.svelte';
-
-	setTimeout(() => {
-		isShow = false;
-
-		setTimeout(() => {
-			goto('/result');
-		}, 1500);
-	}, 2000);
+	import useFade from '../../../components/common/FadeWrapper/useFade';
 
 	let isShow = false;
 
+	const { isShowStore, enhanceCallback } = useFade(() => {
+		goto(`/result`);
+	});
+
+	isShowStore.subscribe((value) => {
+		isShow = value;
+	});
+
 	setTimeout(() => {
-		isShow = true;
-	}, 1000);
+		if (browser) enhanceCallback();
+	}, 3000);
 </script>
 
 <FadeWrapper {isShow} className="relative w-full h-full">
