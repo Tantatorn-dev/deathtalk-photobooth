@@ -9,6 +9,8 @@
 	let answersValue: Answer[] = [];
 	answers.subscribe((value) => {
 		answersValue = value;
+	
+		selected = answersValue.find((answer) => answer.name === name)?.choice ?? null;
 	});
 
 	const onSelect = (choice: Choice) => {
