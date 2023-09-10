@@ -5,11 +5,8 @@
 	import NextButton from '../../../components/common/NextButton.svelte';
 	import Header from '../../../components/explore/Header.svelte';
 	import Question from '../../../components/explore/Question.svelte';
-	import VineFrame from '../../../components/frame/VineFrame.svelte';
 	import { answers, type Answer } from '../../../store';
 	import { isAllAnswered } from '../../../utils/score';
-
-	let index = 0;
 
 	let answersValue: Answer[] = [];
 	answers.subscribe((value) => {
@@ -28,9 +25,8 @@
 </script>
 
 <FadeWrapper {isShow} className="flex flex-col gap-3 ml-8 mr-8">
-	<div class="mt-5">
-		<Header chapter={5} title="การเข้าถึงความช่วยเหลือ" />
-	</div>
+	<img src="/vine/vine_1.svg" class="w-24 -ml-10" alt="vine" />
+	<Header chapter={5} title="การเข้าถึงความช่วยเหลือ" />
 	<div class="flex flex-col gap-5 mt-10">
 		<Question question="1. คุณรู้จักคนที่สามารถช่วยฉันเข้าถึงการสนับสนุนจากชุมชน?" name="e1" />
 		<Question question="2. คุณรู้จักคนที่ให้การดูแลผู้ป่วยที่กำลังจะตายในแต่ละวัน?" name="e2" />
@@ -44,4 +40,5 @@
 			/>
 		</div>
 	</div>
+	<img src="/vine/vine_2.svg" class="w-24 ml-auto" alt="vine" />
 </FadeWrapper>

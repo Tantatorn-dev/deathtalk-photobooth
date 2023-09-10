@@ -25,30 +25,30 @@
 	});
 </script>
 
-<VineFrame hideVine2={true}>
-	<FadeWrapper {isShow} className="flex flex-col gap-3 ml-8 mr-8">
-		<div class="mt-5">
-			<Header chapter={4} title="ประเมินความรู้ต่าง ๆ" subtitle="ความรู้ต่างๆเกี่ยวกับความตาย" />
-		</div>
-		<div class="flex flex-col gap-10 mt-10">
-			<Question question="1. คุณรู้กฎหมายเกี่ยวกับการตายที่บ้าน?" name="d1" />
-			<Question question="2. คุณมั่นใจว่าต้องเตรียมเอกสารอะไรบ้างในการวางแผนการตาย?" name="d2" />
-			<Question
-				question="3. คุณรู้วิธีจัดการระบบการดูแลสุขภาพเพื่อสนับสนุนผู้ป่วยที่กำลังจะตาย?"
-				name="d3"
+<FadeWrapper {isShow} className="flex flex-col gap-3 ml-8 mr-8">
+	<img src="/vine/vine_1.svg" class="w-24 -ml-10" alt="vine" />
+	<div class="mt-5">
+		<Header chapter={4} title="ประเมินความรู้ต่าง ๆ" subtitle="ความรู้ต่างๆเกี่ยวกับความตาย" />
+	</div>
+	<div class="flex flex-col gap-10 mt-10">
+		<Question question="1. คุณรู้กฎหมายเกี่ยวกับการตายที่บ้าน?" name="d1" />
+		<Question question="2. คุณมั่นใจว่าต้องเตรียมเอกสารอะไรบ้างในการวางแผนการตาย?" name="d2" />
+		<Question
+			question="3. คุณรู้วิธีจัดการระบบการดูแลสุขภาพเพื่อสนับสนุนผู้ป่วยที่กำลังจะตาย?"
+			name="d3"
+		/>
+		<Question question="4. คุณรู้กฎหมายเกี่ยวกับการตายที่บ้าน?" name="d4" />
+		<Question question="5. คุณรู้วิธีจัดการพิธีศพและทางเลือกต่าง ๆ แค่ไหน ?" name="d5" />
+		<Question
+			question="6. ฉันรู้เกี่ยวกับการบริจาคที่เจ้าหน้าที่สุสานสามารถทำได้เมื่อสิ้นสุดอายุขัย?"
+			name="d6"
+		/>
+		<div class="flex justify-end">
+			<NextButton
+				disabled={!isAllAnswered(answersValue, ['d1', 'd2', 'd3', 'd4', 'd5', 'd6'])}
+				onClick={enhanceCallback}
 			/>
-			<Question question="4. คุณรู้กฎหมายเกี่ยวกับการตายที่บ้าน?" name="d4" />
-			<Question question="5. คุณรู้วิธีจัดการพิธีศพและทางเลือกต่าง ๆ แค่ไหน ?" name="d5" />
-			<Question
-				question="6. ฉันรู้เกี่ยวกับการบริจาคที่เจ้าหน้าที่สุสานสามารถทำได้เมื่อสิ้นสุดอายุขัย?"
-				name="d6"
-			/>
-			<div class="flex justify-end">
-				<NextButton
-					disabled={!isAllAnswered(answersValue, ['d1', 'd2', 'd3', 'd4', 'd5', 'd6'])}
-					onClick={enhanceCallback}
-				/>
-			</div>
 		</div>
-	</FadeWrapper>
-</VineFrame>
+	</div>
+	<img src="/vine/vine_2.svg" class="w-24 ml-auto" alt="vine" />
+</FadeWrapper>
