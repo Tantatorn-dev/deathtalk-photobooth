@@ -26,10 +26,8 @@
 </script>
 
 <FadeWrapper {isShow} className="flex flex-col gap-3 ml-8 mr-8">
-	<img src="/vine/vine_1.svg" class="w-24 -ml-10" alt="vine" />
-	<div class="mt-5">
-		<Header chapter={4} title="ประเมินความรู้ต่าง ๆ" subtitle="ความรู้ต่างๆเกี่ยวกับความตาย" />
-	</div>
+	<img src="/vine/vine_1.svg" class="w-24 -mb-6 -ml-10" alt="vine" />
+	<Header chapter={4} title="ประเมินความรู้ต่าง ๆ" subtitle="ความรู้ต่างๆเกี่ยวกับความตาย" />
 	<div class="flex flex-col gap-10 mt-10">
 		<Question question="1. คุณรู้กฎหมายเกี่ยวกับการตายที่บ้าน?" name="d1" />
 		<Question question="2. คุณมั่นใจว่าต้องเตรียมเอกสารอะไรบ้างในการวางแผนการตาย?" name="d2" />

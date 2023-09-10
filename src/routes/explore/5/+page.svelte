@@ -25,7 +25,7 @@
 </script>
 
 <FadeWrapper {isShow} className="flex flex-col gap-3 ml-8 mr-8">
-	<img src="/vine/vine_1.svg" class="w-24 -ml-10" alt="vine" />
+	<img src="/vine/vine_1.svg" class="w-24 -mb-6 -ml-10" alt="vine" />
 	<Header chapter={5} title="การเข้าถึงความช่วยเหลือ" />
 	<div class="flex flex-col gap-5 mt-10">
 		<Question question="1. คุณรู้จักคนที่สามารถช่วยฉันเข้าถึงการสนับสนุนจากชุมชน?" name="e1" />

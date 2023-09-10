@@ -26,7 +26,7 @@
 </script>
 
 <FadeWrapper className="flex flex-col gap-3 ml-8 mr-8" {isShow}>
-	<div class="mt-5">
+	<div class="mt-16">
 		<Header
 			chapter={3}
 			title="ประสบการณ์ต่าง ๆ"

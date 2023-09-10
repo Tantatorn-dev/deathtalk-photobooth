@@ -26,7 +26,7 @@
 </script>
 
 <FadeWrapper {isShow} className="z-20 flex flex-col gap-3 ml-8 mr-8">
-	<div class="mt-5">
+	<div class="mt-16">
 		<Header
 			chapter={1}
 			title="การพูดคุยเกี่ยวกับความตาย"
