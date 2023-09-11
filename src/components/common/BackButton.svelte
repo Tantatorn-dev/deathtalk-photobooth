@@ -11,6 +11,6 @@
 	}}
 	class={'z-20 flex flex-row' + (disabled ? ' opacity-50 cursor-not-allowed' : '')}
 >
-	<p>ต่อไป</p>
-	<img src="/arrow/arrow_right.svg" class="w-6 h-6 ml-2" alt="arrow-right" />
+	<img src="/arrow/arrow_left.svg" class="w-6 h-6 mr-2" alt="arrow-right" />
+	<p>ย้อนกลับ</p>
 </button>
