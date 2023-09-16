@@ -4,6 +4,7 @@
 	import useFade from '../../components/common/FadeWrapper/useFade';
 	import NextButton from '../../components/common/NextButton.svelte';
 	import SplashText from '../../components/common/SplashText.svelte';
+	import SponsorBy from '../../components/intro/SponsorBy.svelte';
 
 	const {isShowStore, enhanceCallback} = useFade(()=>goto('/photo'));
 
@@ -26,6 +27,9 @@
 			</div>
 		</div>
 	</FadeWrapper>
-	<img src="/misc/sun.svg" alt="family" class="absolute bottom-48 right-20" />
-	<img src="/misc/mountain.svg" alt="family" class="absolute bottom-0 right-0" />
+	<img src="/misc/sun.svg" alt="family" class="absolute bottom-56 right-20" />
+	<img src="/misc/mountain.svg" alt="family" class="absolute right-0 w-full bottom-10" />
+	<div class="absolute bottom-0 flex justify-center w-full mt-2 mb-2">
+		<SponsorBy />
+	</div>
 </div>
