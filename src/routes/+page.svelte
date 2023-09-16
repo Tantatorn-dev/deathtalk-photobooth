@@ -4,8 +4,9 @@
 	import SplashText from '../components/common/SplashText.svelte';
 	import { goto } from '$app/navigation';
 	import useFade from '../components/common/FadeWrapper/useFade';
+	import SponsorBy from '../components/intro/SponsorBy.svelte';
 
-	const {isShowStore, enhanceCallback} = useFade(()=>goto('/disclaimer'));
+	const { isShowStore, enhanceCallback } = useFade(() => goto('/disclaimer'));
 
 	let isShow = false;
 	isShowStore.subscribe((value) => {
@@ -23,12 +24,13 @@
 				คุณเตรียมพร้อมสำหรับ <br /> “ความตาย” มากน้อยขนาดไหน?
 			</p>
 			<div class="flex flex-row justify-center mt-10">
-				<NextButton
-					onClick={enhanceCallback}
-				/>
+				<NextButton onClick={enhanceCallback} />
 			</div>
 		</div>
 	</FadeWrapper>
-	<img src="/misc/sun.svg" alt="family" class="absolute bottom-48 right-20" />
-	<img src="/misc/mountain.svg" alt="family" class="absolute bottom-0 right-0 w-full" />
+	<img src="/misc/sun.svg" alt="family" class="absolute bottom-56 right-20" />
+	<img src="/misc/mountain.svg" alt="family" class="absolute right-0 w-full bottom-10" />
+	<div class="absolute bottom-0 flex justify-center w-full mt-2 mb-2">
+		<SponsorBy />
+	</div>
 </div>

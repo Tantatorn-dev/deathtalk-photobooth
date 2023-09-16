@@ -42,10 +42,11 @@
 		/>
 		<Question question="3. ประสบการณ์เหล่านั้นทำให้คุณเข้าใจความตายมากขึ้น?" name="c3" />
 		<Question question="4. ประสบการณ์เหล่านั้นทำให้คุณเข้าใจตัวเองมากขึ้น?" name="c4" />
+		<Question question="5. ประสบการณ์เหล่านั้นทำให้คุณมีทักษะในการเผชิญกับเหตุการณ์สูญเสียในอนาคตมากขึ้น?" name="c5" />
 		<div class="flex justify-between">
 			<BackButton onClick={() => goto(`/explore/2`)} />
 			<NextButton
-				disabled={!isAllAnswered(answersValue, ['c1', 'c2', 'c3', 'c4'])}
+				disabled={!isAllAnswered(answersValue, ['c1', 'c2', 'c3', 'c4', 'c5'])}
 				onClick={enhanceCallback}
 			/>
 		</div>

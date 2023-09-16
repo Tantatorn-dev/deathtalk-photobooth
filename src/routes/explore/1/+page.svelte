@@ -36,8 +36,8 @@
 	<div class="flex flex-col gap-10 mt-10">
 		<Question question="1. คุณกล้าพูดเรื่องความตายกับเพื่อนสนิทมากแค่ไหน?" name="a1" />
 		<Question question="2. คุณกล้าพูดเรื่องความตายกับเด็กมากแค่ไหน?" name="a2" />
-		<Question question="3. คุณพูดเรื่องความตายกับเพื่อนสนิท?" name="a3" />
-		<Question question="4. คุณพูดเรื่องความตายกับเด็ก?" name="a4" />
+		<Question question="3. คุณกล้าพูดเรื่องความตายกับผู้ที่เพิ่งประสบกับเหตุการณ์สูญเสียมากแค่ไหน?" name="a3" />
+		<Question question="4. คุณกล้าพูดเรื่องความตายกับหมอเกี่ยวกับการสนับสนุนที่บ้านหรือในสถานที่ดูแลของพวกเขาถึงคนที่กำลังจะตายมากแค่ไหน?" name="a4" />
 		<div class="flex justify-end">
 			<NextButton
 				disabled={!isAllAnswered(answersValue, ['a1', 'a2', 'a3', 'a4'])}
