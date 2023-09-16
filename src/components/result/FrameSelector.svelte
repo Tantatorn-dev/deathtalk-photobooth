@@ -60,7 +60,6 @@
 		const originY = (canvas.height - FRAME_HEIGHT) / 2;
 
 		if (ctx) {
-			// draw bg
 			ctx.fillStyle = '#000';
 			ctx.rect(0, 0, canvas.width, canvas.height);
 			ctx.fill();
@@ -85,6 +84,11 @@
 			ctx.fillText(nameValue, originX + 110, originY + 210);
 			ctx.fillText(`ชาตะ ${toThaiDate(birthDateValue)}`, originX + 110, originY + 230);
 			ctx.fillText(`มรณะ ${toThaiDate(new Date())}`, originX + 110, originY + 250);
+
+			ctx.fillStyle = '#fff';
+			ctx.font = '14px IBM Plex Sans Thai Looped';
+			ctx.fillText("#Deathtalk", originX + 110, originY + 380);
+			ctx.fillText(`${nameValue} ผ่านการทำความเข้าใจความตาย`, originX + 110, originY - 150);
 
 			const link = document.createElement('a');
 			link.download = 'deathtalkth.png';
