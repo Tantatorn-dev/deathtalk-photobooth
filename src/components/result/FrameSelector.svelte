@@ -4,6 +4,7 @@
 	import { browser } from '$app/environment';
 	import { avatar, birthDate, name } from '../../store';
 	import { toThaiDate } from '../../utils/utils';
+	import { loadImage } from '../../utils/img';
 
 	let avatarValue: string;
 
@@ -26,7 +27,7 @@
 		else birthDateValue = new Date();
 	});
 
-	const onDownload = () => {
+	const onDownload = async () => {
 		const canvas = document.createElement('canvas');
 		const ctx = canvas.getContext('2d');
 
@@ -48,20 +49,16 @@
 			ctx.rect(0, 0, canvas.width, canvas.height);
 			ctx.fill();
 
-			const bg = new Image();
-			bg.src = '/share_bg.png';
+			const bg = await loadImage('/share_bg.png');
 			ctx.drawImage(bg, 0, 0, IMG_WIDTH, IMG_HEIGHT);
 
-			const frame = new Image();
-			frame.src = '/frame/gold_frame.svg';
+			const frame = await loadImage('/frame/gold_frame.svg');
 			ctx.drawImage(frame, originX, originY);
 
-			const img = new Image();
-			img.src = avatarValue;
+			const img = await loadImage(avatarValue);
 			ctx.drawImage(img, originX + 40, originY + 30, 144, 144);
 
-			const rose = new Image();
-			rose.src = '/misc/rose.svg';
+			const rose = await loadImage('/misc/rose.svg');
 			ctx.drawImage(rose, IMG_WIDTH - 70, originY + 70);
 			ctx.drawImage(rose, -150, originY + 70);
 
