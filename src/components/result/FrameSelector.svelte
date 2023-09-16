@@ -34,13 +34,13 @@
 		const IMG_WIDTH = 390;
 		const IMG_HEIGHT = 844;
 
-		const FRAME_WIDTH = 219;
-		const FRAME_HEIGHT = 297;
+		const FRAME_WIDTH = 192;
+		const FRAME_HEIGHT = 261;
 
 		canvas.width = IMG_WIDTH;
 		canvas.height = IMG_HEIGHT;
 
-		const originX = (canvas.width - FRAME_WIDTH) / 2;
+		const originX = (canvas.width - FRAME_WIDTH) / 2 - 10;
 		const originY = (canvas.height - FRAME_HEIGHT) / 2;
 
 		if (ctx) {
@@ -52,15 +52,15 @@
 			const bg = await loadImage('/share_bg.png');
 			ctx.drawImage(bg, 0, 0, IMG_WIDTH, IMG_HEIGHT);
 
+			const rose = await loadImage('/misc/rose.svg');
+			ctx.drawImage(rose, originX - 80, originY + 90, 187, 189);
+			ctx.drawImage(rose, originX + 100, originY + 90, 187, 189);
+
 			const frame = await loadImage('/frame/gold_frame.svg');
 			ctx.drawImage(frame, originX, originY);
 
 			const img = await loadImage(avatarValue);
 			ctx.drawImage(img, originX + 40, originY + 30, 144, 144);
-
-			const rose = await loadImage('/misc/rose.svg');
-			ctx.drawImage(rose, IMG_WIDTH - 70, originY + 70);
-			ctx.drawImage(rose, -150, originY + 70);
 
 			ctx.fillStyle = '#000';
 			ctx.textAlign = 'center';
