@@ -39,6 +39,9 @@
 		canvas.width = IMG_WIDTH;
 		canvas.height = IMG_HEIGHT;
 
+		const originX = (canvas.width - FRAME_WIDTH) / 2;
+		const originY = (canvas.height - FRAME_HEIGHT) / 2;
+
 		if (ctx) {
 			// draw bg
 			ctx.fillStyle = '#000';
@@ -47,26 +50,18 @@
 
 			const bg = new Image();
 			bg.src = '/share_bg.png';
-			
 			ctx.drawImage(bg, 0, 0, IMG_WIDTH, IMG_HEIGHT);
 
 			const frame = new Image();
 			frame.src = '/frame/gold_frame.svg';
-
-			const rose = new Image();
-			rose.src = '/misc/rose.svg';
+			ctx.drawImage(frame, originX, originY);
 
 			const img = new Image();
 			img.src = avatarValue;
+			ctx.drawImage(img, originX + 40, originY + 30, 144, 144);
 
-
-			const originX = (canvas.width - FRAME_WIDTH) / 2;
-			const originY = (canvas.height - FRAME_HEIGHT) / 2;
-
-			ctx.drawImage(frame, originX, originY);
-			ctx.drawImage(img, originX + 50, originY + 50, 144, 144);
-
-			// draw black bg with roses
+			const rose = new Image();
+			rose.src = '/misc/rose.svg';
 			ctx.drawImage(rose, IMG_WIDTH - 70, originY + 70);
 			ctx.drawImage(rose, -150, originY + 70);
 
@@ -74,9 +69,9 @@
 			ctx.textAlign = 'center';
 			ctx.font = '11.5px IBM Plex Sans Thai Looped';
 
-			ctx.fillText(nameValue, originX + 120, originY + 210);
-			ctx.fillText(`ชาตะ ${toThaiDate(birthDateValue)}`, originX + 120, originY + 230);
-			ctx.fillText(`มรณะ ${toThaiDate(new Date())}`, originX + 120, originY + 250);
+			ctx.fillText(nameValue, originX + 110, originY + 210);
+			ctx.fillText(`ชาตะ ${toThaiDate(birthDateValue)}`, originX + 110, originY + 230);
+			ctx.fillText(`มรณะ ${toThaiDate(new Date())}`, originX + 110, originY + 250);
 
 			const link = document.createElement('a');
 			link.download = 'deathtalkth.png';
@@ -104,7 +99,9 @@
 	{/if}
 </div>
 <div class="ml-10 mr-10 -mt-5">
-	<button on:click={onDownload} class="button-primary">บันทึกรูปภาพ</button>
+	{#if browser}
+		<button on:click={onDownload} class="button-primary">บันทึกรูปภาพ</button>
+	{/if}
 </div>
 
 <style lang="postcss">
