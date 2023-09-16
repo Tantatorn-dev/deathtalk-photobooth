@@ -27,6 +27,22 @@
 		else birthDateValue = new Date();
 	});
 
+	let selectedFrame = 'black';
+
+	const onPageChange = (event: { detail: number }) => {
+		switch (event.detail) {
+			case 0:
+				selectedFrame = 'black';
+				break;
+			case 1:
+				selectedFrame = 'gold';
+				break;
+			case 2:
+				selectedFrame = 'silver';
+				break;
+		}
+	};
+
 	const onDownload = async () => {
 		const canvas = document.createElement('canvas');
 		const ctx = canvas.getContext('2d');
@@ -56,7 +72,7 @@
 			ctx.drawImage(rose, originX - 80, originY + 90, 187, 189);
 			ctx.drawImage(rose, originX + 100, originY + 90, 187, 189);
 
-			const frame = await loadImage('/frame/gold_frame.svg');
+			const frame = await loadImage(`/frame/${selectedFrame}_frame.svg`);
 			ctx.drawImage(frame, originX, originY);
 
 			const img = await loadImage(avatarValue);
@@ -82,7 +98,7 @@
 	class="flex flex-row items-center justify-between w-full bg-[url(/misc/bg_rose.png)] pt-4 pb-4"
 >
 	{#if browser}
-		<Carousel>
+		<Carousel on:pageChange={onPageChange}>
 			<div class="wrapper-photo">
 				<Frame src={avatarValue} frameType="black" />
 			</div>
@@ -96,9 +112,7 @@
 	{/if}
 </div>
 <div class="ml-10 mr-10 -mt-5">
-	{#if browser}
-		<button on:click={onDownload} class="button-primary">บันทึกรูปภาพ</button>
-	{/if}
+	<button on:click={onDownload} class="button-primary">บันทึกรูปภาพ</button>
 </div>
 
 <style lang="postcss">
