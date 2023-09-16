@@ -12,8 +12,8 @@ type Category = 'a' | 'b' | 'c' | 'd' | 'e';
 const categoryModifierMap: Record<Category, number> = {
 	a: 16,
 	b: 16,
-	c: 16,
-	d: 24,
+	c: 20,
+	d: 28,
 	e: 20
 };
 
