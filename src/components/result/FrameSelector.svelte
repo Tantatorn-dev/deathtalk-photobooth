@@ -93,13 +93,13 @@
 	{#if browser}
 		<Carousel>
 			<div class="wrapper-photo">
-				<Frame src={avatarValue} />
+				<Frame src={avatarValue} frameType="black" />
 			</div>
 			<div class="wrapper-photo">
-				<Frame src={avatarValue} />
+				<Frame src={avatarValue} frameType="gold" />
 			</div>
 			<div class="wrapper-photo">
-				<Frame src={avatarValue} />
+				<Frame src={avatarValue} frameType="silver" />
 			</div>
 		</Carousel>
 	{/if}
