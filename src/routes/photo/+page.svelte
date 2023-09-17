@@ -120,10 +120,7 @@
 					on:cropcomplete={({ detail }) => (pixelCrop = detail.pixels)}
 				/>
 				<div class="absolute w-48 bottom-10">
-					<button
-						class="button-primary"
-						on:click={onFinishCrop}>บันทึก</button
-					>
+					<button class="button-primary" on:click={onFinishCrop}>บันทึก</button>
 				</div>
 			{/if}
 		{:else}
@@ -155,11 +152,9 @@
 			<button class="button-secondary" on:click={onOpenFileInput}>อัปโหลดรูปภาพ</button>
 		</div>
 
-		{#if isCropped}
-			<div class="flex flex-row justify-end w-full mt-8">
-				<NextButton onClick={enhanceCallback} disabled={!nameValue || !birthDateValue} />
-			</div>
-		{/if}
+		<div class="flex flex-row justify-end w-full mt-8">
+			<NextButton onClick={enhanceCallback} disabled={!nameValue || !birthDateValue} />
+		</div>
 	</div>
 </FadeWrapper>
 <input
