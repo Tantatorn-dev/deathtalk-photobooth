@@ -55,11 +55,15 @@
 
 		canvas.width = IMG_WIDTH;
 		canvas.height = IMG_HEIGHT;
-
 		const originX = (canvas.width - FRAME_WIDTH) / 2 - 10;
 		const originY = (canvas.height - FRAME_HEIGHT) / 2;
 
 		if (ctx) {
+			if (window.devicePixelRatio != 1.0) {
+				ctx.canvas.style.width = ctx.canvas.width / devicePixelRatio + 'px';
+				ctx.canvas.style.height = ctx.canvas.height / devicePixelRatio + 'px';
+			}
+
 			ctx.fillStyle = '#000';
 			ctx.rect(0, 0, canvas.width, canvas.height);
 			ctx.fill();
@@ -87,7 +91,8 @@
 
 			ctx.fillStyle = '#fff';
 			ctx.font = '14px IBM Plex Sans Thai Looped';
-			ctx.fillText("#Deathtalk", originX + 110, originY + 380);
+			ctx.fillText('#Deathtalk', originX + 110, originY + 380);
+			ctx.fillText('www.Deathtalk.th', originX + 110, originY + 420);
 			ctx.fillText(`${nameValue} ผ่านการทำความเข้าใจความตาย`, originX + 110, originY - 150);
 
 			const link = document.createElement('a');
