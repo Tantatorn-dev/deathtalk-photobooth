@@ -47,17 +47,26 @@
 				<FacebookShareButton />
 			</div>
 		</div>
-		<button
-			on:click={() => {
-				goto('https://facebook.com/DeathTalkative');
-			}}
-			class="about-us-btn">เกี่ยวกับเรา</button
-		>
+		<div class="flex flex-row w-full pt-4 pb-4 text-white bg-black justify-evenly">
+			<button
+				on:click={() => {
+					goto('https://facebook.com/DeathTalkative');
+				}}
+				class="w-32">เกี่ยวกับเรา</button
+			>
+			<div class="vDivider" />
+			<button
+				on:click={() => {
+					goto('/prepare');
+				}}
+				class="w-32">วิธีเตรียมตัวตาย</button
+			>
+		</div>
 	</div>
 {/if}
 
 <style lang="postcss">
-	.about-us-btn {
-		@apply w-full pt-4 pb-4 mt-auto text-white bg-black;
+	.vDivider {
+		@apply w-px h-8 bg-white;
 	}
 </style>
