@@ -95,7 +95,7 @@
 			{/if}
 
 			<div class="flex flex-col w-full gap-4 pl-10 pr-10 mt-4">
-				<p class="text-intro">เคยนึกถึงภาพนี้มาก่อนไหม?</p>
+				<p class="text-intro">คุณเคยนึกถึงภาพตัวเองในรูปแบบนี้มาก่อนไหม?</p>
 				<button class="button-primary" on:click={portraitToInfo1}>เคย</button>
 				<button class="button-primary" on:click={portraitToInfo1}>ไม่เคย</button>
 			</div>
