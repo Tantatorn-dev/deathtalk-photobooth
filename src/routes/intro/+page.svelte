@@ -111,7 +111,7 @@
 	<FadeWrapper isShow={isShowInfo2}>
 		<div class="flex flex-col items-center justify-center gap-8 pt-36">
 			<Pie />
-			<p class="pl-16 pr-16 text-intro">80% ของคนที่ได้จากไป ไม่มีการวางแผนคาดการณ์ล่วงหน้า</p>
+			<p class="pl-16 pr-16 text-intro">80% ของคนที่ได้จากไป <br>ไม่มีการวางแผนเตรียมตัวตายล่วงหน้า</p>
 			<NextButton onClick={info2ToExplore}>ต่อไป</NextButton>
 		</div>
 	</FadeWrapper>
