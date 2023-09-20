@@ -1,39 +1,18 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
-
-	export let show1 = false;
-	export let show2 = false;
-	export let show3 = false;
-
-	setTimeout(() => {
-		show1 = true;
-	}, 1000);
-
-	setTimeout(() => {
-		show1 = false;
-		show2 = true;
-	}, 5000);
-
-	setTimeout(() => {
-		show2 = false;
-		show3 = true;
-	}, 8000);
+	export let count = 0;
 </script>
 
-{#if show1}
+{#if count === 1}
 	<p class="text-intro" in:fly={{ y: 200, duration: 2000 }} out:fly={{ y: -200, duration: 2000 }}>
 		คุณอาจมีหลายความรู้สึกเกิดขึ้น <br />หลังจากที่ได้เห็นภาพของตัวเอง
 	</p>
-{/if}
-
-{#if show2}
+{:else if count === 2}
 	<p class="text-intro" in:fly={{ y: 200, duration: 2000 }} out:fly={{ y: -200, duration: 2000 }}>
 		คนส่วนมากคิดว่า <br />การพูดหรือการทำอะไรเกี่ยวกับความตาย <br />เป็นลางร้าย อัปมงคล
 		และไม่ควรพูดถึง
 	</p>
-{/if}
-
-{#if show3}
+{:else if count === 3}
 	<p class="text-intro" in:fly={{ y: 200, duration: 2000 }} out:fly={{ y: -200, duration: 2000 }}>
 		ซึ่งการไม่พุดเรื่องความตาย<br />มีผลเสียมากกว่าที่คุณคิด..
 	</p>
