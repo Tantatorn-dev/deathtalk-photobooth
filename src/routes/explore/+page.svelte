@@ -28,9 +28,6 @@
 		<p>{nameValue} รู้จักความตายดีแค่ไหน ?</p>
 		<div class="flex flex-col w-full gap-4 pl-16 pr-16 mt-4">
 			<button on:click={navigate('/explore/1')} class="button-primary">เริ่มสำรวจตนเอง</button>
-			<button on:click={navigate('/prepare')} class="text-center underline"
-				>สำรวจวิธีเตรียมตาย</button
-			>
 		</div>
 	</FadeWrapper>
 	<div class="absolute bottom-0 w-full">

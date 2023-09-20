@@ -21,7 +21,7 @@
 			<p class="text-4xl text-center">ยินดีต้อนรับสู่ <br /></p>
 			<SplashText className="text-4xl text-center p-1 pb-2">Death Talk</SplashText>
 			<p class="mt-8 font-light text-center">
-				คุณเตรียมพร้อมสำหรับ <br /> “ความตาย” มากน้อยขนาดไหน?
+				คุณเตรียมพร้อม  <br />สำหรับ “ความตาย” แค่ไหน
 			</p>
 			<div class="flex flex-row justify-center mt-10">
 				<NextButton onClick={enhanceCallback} />

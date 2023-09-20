@@ -93,7 +93,7 @@
 							isShow3 = false;
 
 							setTimeout(() => {
-								goto('/explore');
+								goto('/result');
 							}, 1000);
 						}}
 					/>

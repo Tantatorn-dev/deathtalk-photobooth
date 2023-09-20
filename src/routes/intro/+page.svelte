@@ -38,10 +38,6 @@
 		setTimeout(() => {
 			stage = Stage.Portrait;
 		}, 2000);
-	} else if (stage === Stage.Info1) {
-		setTimeout(() => {
-			stage = Stage.Info2;
-		}, 12000);
 	}
 
 	let isShowPortrait = false;
@@ -58,6 +54,23 @@
 		setTimeout(() => {
 			stage = Stage.Info1;
 		}, 1000);
+	};
+
+	let introTextCount = 0;
+
+	$: if (stage === Stage.Info1) {
+		setTimeout(() => {
+			introTextCount = 1;
+		}, 1000);
+	}
+
+	const onNext = () => {
+		if (introTextCount === 3) {
+			stage = Stage.Info2;
+			return;
+		}
+
+		introTextCount += 1;
 	};
 
 	let isShowInfo2 = false;
@@ -95,7 +108,7 @@
 			{/if}
 
 			<div class="flex flex-col w-full gap-4 pl-10 pr-10 mt-4">
-				<p class="text-intro">เคยนึกถึงภาพนี้มาก่อนไหม?</p>
+				<p class="text-intro">คุณเคยนึกถึงภาพตัวเองในรูปแบบนี้มาก่อนไหม?</p>
 				<button class="button-primary" on:click={portraitToInfo1}>เคย</button>
 				<button class="button-primary" on:click={portraitToInfo1}>ไม่เคย</button>
 			</div>
@@ -104,14 +117,19 @@
 {:else if stage == Stage.Info1}
 	<VineFrame
 		><div class="container-intro">
-			<IntroText />
-		</div></VineFrame
-	>
+			<IntroText count={introTextCount} />
+		</div>
+		<div class="absolute right-10 bottom-40">
+			<NextButton onClick={onNext} />
+		</div>
+	</VineFrame>
 {:else if stage == Stage.Info2}
 	<FadeWrapper isShow={isShowInfo2}>
 		<div class="flex flex-col items-center justify-center gap-8 pt-36">
 			<Pie />
-			<p class="pl-16 pr-16 text-intro">80% ของคนที่ได้จากไป ไม่มีการวางแผนคาดการณ์ล่วงหน้า</p>
+			<p class="pl-16 pr-16 text-intro">
+				80% ของคนที่ได้จากไป <br />ไม่มีการวางแผนเตรียมตัวตายล่วงหน้า
+			</p>
 			<NextButton onClick={info2ToExplore}>ต่อไป</NextButton>
 		</div>
 	</FadeWrapper>
