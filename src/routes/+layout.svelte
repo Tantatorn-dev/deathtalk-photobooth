@@ -12,9 +12,6 @@
 		href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@300;400;600;700&display=swap"
 		rel="stylesheet"
 	/>
-	{#if browser}
-		<meta property="og:image" content={`${window.location.origin}/og.png`} />
-	{/if}
 </svelte:head>
 
 <svelte:window bind:innerWidth={screenWidth} />
