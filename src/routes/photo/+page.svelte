@@ -142,7 +142,7 @@
 			<input
 				type="date"
 				on:input={onUpdateBirthDate}
-				class="button-secondary bg-secondary"
+				class="button-secondary bg-secondary date-input"
 				placeholder="เลือกวันเกิด"
 			/>
 		</div>
@@ -164,3 +164,18 @@
 	on:change={(e) => onFileSelected(e)}
 	bind:this={fileinput}
 />
+
+<style lang="postcss">
+	.date-input {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		@apply h-11;
+	}
+
+	input[type='date']:before {
+		color: rgb(157, 163 ,174);
+		content: attr(placeholder) !important;
+		margin-right: 0.5em;
+		min-width: 6rem;
+	}
+</style>
