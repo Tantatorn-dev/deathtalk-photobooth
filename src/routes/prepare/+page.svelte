@@ -102,11 +102,11 @@
 		{/if}
 	</div>
 	{#if index == 0}
-		<img src="/misc/legacy.svg" alt="legacy" class="animate-custom-bounce" />
+		<img src="/misc/legacy.png" alt="legacy" class="w-72 animate-custom-bounce" />
 	{:else if index == 1}
 		<img src="/misc/hand.svg" alt="hand" class="animate-custom-bounce" />
 	{:else if index == 2}
-		<img src="/misc/note_2.svg" alt="baojai note" class="animate-custom-bounce" />
+		<img src="/misc/note_2.png" alt="baojai note" class="animate-custom-bounce w-72" />
 	{/if}
 </div>
 

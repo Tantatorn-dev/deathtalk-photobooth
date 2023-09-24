@@ -119,7 +119,7 @@
 		><div class="container-intro">
 			<IntroText count={introTextCount} />
 		</div>
-		<div class="absolute right-10 bottom-40">
+		<div class="next-button">
 			<NextButton onClick={onNext} />
 		</div>
 	</VineFrame>
@@ -142,5 +142,15 @@
 
 	.text-intro {
 		@apply text-sm text-center;
+	}
+
+	.next-button {
+		@apply fixed right-10 bottom-40;
+	}
+
+	@media (min-width: 768px) {
+		.next-button {
+			@apply absolute right-10 bottom-40;
+		}
 	}
 </style>
