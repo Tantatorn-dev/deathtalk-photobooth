@@ -119,7 +119,7 @@
 		><div class="container-intro">
 			<IntroText count={introTextCount} />
 		</div>
-		<div class="absolute right-10 bottom-40">
+		<div class="fixed right-10 bottom-40">
 			<NextButton onClick={onNext} />
 		</div>
 	</VineFrame>
