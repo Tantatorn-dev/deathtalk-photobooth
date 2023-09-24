@@ -59,10 +59,17 @@
 		const originY = (canvas.height - FRAME_HEIGHT) / 2;
 
 		if (ctx) {
-			if (window.devicePixelRatio != 1.0) {
-				ctx.canvas.style.width = ctx.canvas.width / devicePixelRatio + 'px';
-				ctx.canvas.style.height = ctx.canvas.height / devicePixelRatio + 'px';
-			}
+			window.devicePixelRatio = 2; 
+			
+			canvas.style.width = IMG_WIDTH + 'px';
+			canvas.style.height = IMG_HEIGHT + 'px';
+
+			const scale = window.devicePixelRatio;
+
+			canvas.width = Math.floor(IMG_WIDTH * scale);
+			canvas.height = Math.floor(IMG_HEIGHT * scale);
+
+			ctx.scale(scale, scale);
 
 			ctx.fillStyle = '#000';
 			ctx.rect(0, 0, canvas.width, canvas.height);
