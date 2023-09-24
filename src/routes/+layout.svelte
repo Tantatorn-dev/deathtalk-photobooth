@@ -26,7 +26,7 @@
 	}
 
 	:global(body) {
-		@apply h-[100vh] w-[100vw] overflow-auto;
+		@apply h-[100dvh] w-[100dvw] overflow-auto;
 		font-family: 'IBM Plex Sans Thai Looped', sans-serif;
 	}
 
