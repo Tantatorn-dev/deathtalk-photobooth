@@ -85,7 +85,7 @@
 		isShowInfo2 = false;
 
 		setTimeout(() => {
-			goto('/explore');
+			goto('/explore/1');
 		}, 1000);
 	};
 </script>
@@ -130,7 +130,7 @@
 			<p class="pl-16 pr-16 text-intro">
 				80% ของคนที่ได้จากไป <br />ไม่มีการวางแผนเตรียมตัวตายล่วงหน้า
 			</p>
-			<NextButton onClick={info2ToExplore}>ต่อไป</NextButton>
+			<NextButton onClick={info2ToExplore} label="เริ่มสำรวจตนเอง" />
 		</div>
 	</FadeWrapper>
 {/if}
