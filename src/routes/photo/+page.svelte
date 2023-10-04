@@ -137,7 +137,12 @@
 
 		<div class="flex flex-col w-full gap-1 mt-4">
 			<p class="text-sm">วันเกิด*</p>
-			<DatePicker name="date" placeholder="เลือกวันเกิด" bind:value={$birthDate} data-theme="mytheme" />
+			<DatePicker
+				name="date"
+				placeholder="เลือกวันเกิด"
+				bind:value={$birthDate}
+				data-theme="mytheme"
+			/>
 		</div>
 
 		<div class="flex flex-col w-full gap-1 mt-4">
@@ -146,7 +151,11 @@
 		</div>
 
 		<div class="flex flex-row justify-end w-full mt-8">
-			<NextButton onClick={enhanceCallback} disabled={!nameValue || !birthDateValue} />
+			<NextButton
+				onClick={enhanceCallback}
+				disabled={!nameValue || !birthDateValue}
+				isAbove={false}
+			/>
 		</div>
 	</div>
 </FadeWrapper>
