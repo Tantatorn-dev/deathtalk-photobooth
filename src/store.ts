@@ -2,7 +2,7 @@ import { writable } from 'svelte/store';
 
 export const avatar = writable('');
 export const name = writable('');
-export const birthDate = writable('');
+export const birthDate = writable<Date | undefined>(undefined);
 
 export enum Choice {
 	VERY_LITTLE,

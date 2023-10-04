@@ -11,7 +11,8 @@
 
 	let avatarValue: string;
 	let nameValue: string;
-	let birthDateValue: string;
+
+	let birthDateValue: Date | undefined;
 
 	let crop = { x: 0, y: 0 };
 	let zoom = 1;
@@ -95,10 +96,6 @@
 		name.set(e.currentTarget.value);
 	};
 
-	const onUpdateBirthDate = (e: Event & { currentTarget: EventTarget & HTMLInputElement }) => {
-		birthDate.set(e.currentTarget.value);
-	};
-
 	const { isShowStore, enhanceCallback } = useFade(() => goto('/intro'));
 
 	let isShow = false;
@@ -140,7 +137,7 @@
 
 		<div class="flex flex-col w-full gap-1 mt-4">
 			<p class="text-sm">วันเกิด*</p>
-			<DatePicker name="date" placeholder="เลือกวันเกิด" data-theme="mytheme" />
+			<DatePicker name="date" placeholder="เลือกวันเกิด" bind:value={$birthDate} data-theme="mytheme" />
 		</div>
 
 		<div class="flex flex-col w-full gap-1 mt-4">
