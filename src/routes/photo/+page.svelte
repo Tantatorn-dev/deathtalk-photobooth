@@ -142,6 +142,7 @@
 				placeholder="เลือกวันเกิด"
 				bind:value={$birthDate}
 				data-theme="mytheme"
+				mobile
 			/>
 		</div>
 
