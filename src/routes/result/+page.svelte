@@ -48,12 +48,9 @@
 			</div>
 		</div>
 		<div class="flex flex-row w-full pt-4 pb-4 text-white bg-black justify-evenly">
-			<button
-				on:click={() => {
-					goto('https://facebook.com/DeathTalkative');
-				}}
-				class="w-32">เกี่ยวกับเรา</button
-			>
+			<a href="https://facebook.com/DeathTalkative" target="_blank">
+				<button class="w-32 pt-1">เกี่ยวกับเรา</button>
+			</a>
 			<div class="vDivider" />
 			<button
 				on:click={() => {

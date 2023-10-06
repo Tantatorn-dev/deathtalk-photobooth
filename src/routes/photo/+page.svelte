@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import Cropper from 'svelte-easy-crop';
+	import { DatePicker } from 'stwui';
 	import FadeWrapper from '../../components/common/FadeWrapper/FadeWrapper.svelte';
 	import useFade from '../../components/common/FadeWrapper/useFade';
 	import NextButton from '../../components/common/NextButton.svelte';
@@ -10,7 +11,8 @@
 
 	let avatarValue: string;
 	let nameValue: string;
-	let birthDateValue: string;
+
+	let birthDateValue: Date | undefined;
 
 	let crop = { x: 0, y: 0 };
 	let zoom = 1;
@@ -94,10 +96,6 @@
 		name.set(e.currentTarget.value);
 	};
 
-	const onUpdateBirthDate = (e: Event & { currentTarget: EventTarget & HTMLInputElement }) => {
-		birthDate.set(e.currentTarget.value);
-	};
-
 	const { isShowStore, enhanceCallback } = useFade(() => goto('/intro'));
 
 	let isShow = false;
@@ -139,11 +137,12 @@
 
 		<div class="flex flex-col w-full gap-1 mt-4">
 			<p class="text-sm">วันเกิด*</p>
-			<input
-				type="date"
-				on:input={onUpdateBirthDate}
-				class="button-secondary bg-secondary date-input"
+			<DatePicker
+				name="date"
 				placeholder="เลือกวันเกิด"
+				bind:value={$birthDate}
+				data-theme="mytheme"
+				mobile
 			/>
 		</div>
 
@@ -153,7 +152,11 @@
 		</div>
 
 		<div class="flex flex-row justify-end w-full mt-8">
-			<NextButton onClick={enhanceCallback} disabled={!nameValue || !birthDateValue} />
+			<NextButton
+				onClick={enhanceCallback}
+				disabled={!nameValue || !birthDateValue}
+				isAbove={false}
+			/>
 		</div>
 	</div>
 </FadeWrapper>
@@ -164,18 +167,3 @@
 	on:change={(e) => onFileSelected(e)}
 	bind:this={fileinput}
 />
-
-<style lang="postcss">
-	.date-input {
-		-webkit-appearance: none;
-		-moz-appearance: none;
-		@apply h-11;
-	}
-
-	input[type='date']:before {
-		color: rgb(157, 163 ,174);
-		content: attr(placeholder) !important;
-		margin-right: 0.5em;
-		min-width: 6rem;
-	}
-</style>
