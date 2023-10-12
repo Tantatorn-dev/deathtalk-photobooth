@@ -28,7 +28,7 @@
 		Info2
 	}
 
-	let stage: Stage = Stage.Info2;
+	let stage: Stage = Stage.Init;
 
 	$: if (stage === Stage.Init) {
 		setTimeout(() => {
