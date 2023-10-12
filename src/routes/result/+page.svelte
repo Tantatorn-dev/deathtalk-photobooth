@@ -54,7 +54,7 @@
 			<div class="vDivider" />
 			<button
 				on:click={() => {
-					goto('/prepare');
+					goto('/prepare/cta');
 				}}
 				class="w-32">วิธีเตรียมตัวตาย</button
 			>
