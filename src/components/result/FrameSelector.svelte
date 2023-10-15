@@ -95,11 +95,12 @@
 			ctx.fillText(`ชาตะ ${toThaiDate(birthDateValue)}`, originX + 110, originY + 230);
 			ctx.fillText(`มรณะ ${toThaiDate(new Date())}`, originX + 110, originY + 250);
 
+			ctx.fillStyle = '#000';
+			ctx.fillRect(originX + 110 - 50, originY + 380, 100, 20);
+
 			ctx.fillStyle = '#fff';
 			ctx.font = '14px IBM Plex Sans Thai Looped';
-			ctx.fillText('#Deathtalk', originX + 110, originY + 380);
-			ctx.fillText('www.Deathtalk.th', originX + 110, originY + 420);
-			ctx.fillText(`${nameValue} ผ่านการทำความเข้าใจความตาย`, originX + 110, originY - 150);
+			ctx.fillText('#deathtalkth', originX + 110, originY + 395);
 
 			const link = document.createElement('a');
 			link.download = 'deathtalkth.png';
