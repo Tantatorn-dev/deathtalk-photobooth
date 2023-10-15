@@ -9,3 +9,8 @@
 .button-secondary {
 	@apply w-full p-2 border border-black rounded-md bg-secondary;
 }
+
+@font-face {
+	font-family: 'Charmonman';
+	src: url('/typefaces/TH Charmonman.ttf') format('ttf');
+}

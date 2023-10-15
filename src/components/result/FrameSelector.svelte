@@ -89,7 +89,7 @@
 
 			ctx.fillStyle = '#000';
 			ctx.textAlign = 'center';
-			ctx.font = '11.5px IBM Plex Sans Thai Looped';
+			ctx.font = '11.5px Charmonman';
 
 			ctx.fillText(nameValue, originX + 110, originY + 210);
 			ctx.fillText(`ชาตะ ${toThaiDate(birthDateValue)}`, originX + 110, originY + 230);
