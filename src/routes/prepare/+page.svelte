@@ -89,11 +89,12 @@
 				</p>
 				<div class="next-btn-container">
 					<NextButton
+					 	label="ลงทะเบียนกิจกรรม"
 						onClick={() => {
 							isShow3 = false;
 
 							setTimeout(() => {
-								goto('/result');
+								goto('https://docs.google.com/forms/d/e/1FAIpQLSfvCN45zZkie_YThhWXn9q1_jmN3-iIgxSueXrsbm-45E-zBQ/viewform?usp=sf_link');
 							}, 1000);
 						}}
 					/>
