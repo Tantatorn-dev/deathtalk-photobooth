@@ -78,9 +78,8 @@
 			const bg = await loadImage('/share_bg.png');
 			ctx.drawImage(bg, 0, 0, IMG_WIDTH, IMG_HEIGHT);
 
-			const rose = await loadImage('/misc/rose.svg');
-			ctx.drawImage(rose, originX - 80, originY + 90, 187, 189);
-			ctx.drawImage(rose, originX + 100, originY + 90, 187, 189);
+			const flowers = await loadImage('/misc/funeral.png');
+			ctx.drawImage(flowers, originX  - 40, originY - 100, 300, 350);
 
 			const frame = await loadImage(`/frame/${selectedFrame}_frame.svg`);
 			ctx.drawImage(frame, originX, originY);
