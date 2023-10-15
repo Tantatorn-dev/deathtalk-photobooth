@@ -32,6 +32,6 @@
 		stroke-width={radius}
 		stroke-dasharray={dashArray}
 	/>
-	<text x="55" y="65" class="fill-white small">80%</text>
-	<text x="145" y="145" class="fill-white small">20%</text>
+	<image x="0" y="-15" width="80" height="80" href="dataviz/unplanned.svg" />
+	<image x="120" y="105" width="80" height="80" href="dataviz/planned.svg" />
 </svg>
