@@ -59,8 +59,8 @@
 		const originY = (canvas.height - FRAME_HEIGHT) / 2;
 
 		if (ctx) {
-			window.devicePixelRatio = 2; 
-			
+			window.devicePixelRatio = 2;
+
 			canvas.style.width = IMG_WIDTH + 'px';
 			canvas.style.height = IMG_HEIGHT + 'px';
 
@@ -79,7 +79,7 @@
 			ctx.drawImage(bg, 0, 0, IMG_WIDTH, IMG_HEIGHT);
 
 			const flowers = await loadImage('/misc/funeral.png');
-			ctx.drawImage(flowers, originX  - 40, originY - 100, 300, 350);
+			ctx.drawImage(flowers, originX - 40, originY - 100, 300, 350);
 
 			const frame = await loadImage(`/frame/${selectedFrame}_frame.svg`);
 			ctx.drawImage(frame, originX, originY);
@@ -100,7 +100,7 @@
 
 			ctx.fillStyle = '#fff';
 			ctx.font = '14px IBM Plex Sans Thai Looped';
-			ctx.fillText('#deathtalkth', originX + 110, originY + 395);
+			ctx.fillText('#deathtalkความตายและชีวิต', originX + 110, originY + 395);
 
 			const link = document.createElement('a');
 			link.download = 'deathtalkth.png';
