@@ -28,7 +28,7 @@
 		Info2
 	}
 
-	let stage: Stage = Stage.Init;
+	let stage: Stage = Stage.Info2;
 
 	$: if (stage === Stage.Init) {
 		setTimeout(() => {
@@ -126,16 +126,13 @@
 {:else if stage == Stage.Info2}
 	<FadeWrapper isShow={isShowInfo2}>
 		<div class="flex flex-col items-center justify-center gap-8">
-			<div class="relative">
-				<img src="/dataviz/bg.png" alt="dataviz-bg" />
-				<div class="absolute top-0 flex flex-col items-center w-full">
-					<p class="p-3 mt-5 mb-5 text-center bg-white w-72">
-						80% ของคนที่ได้จากไป ไม่มีการวางแผนคาดการณ์ล่วงหน้า
-					</p>
-					<Pie />
-				</div>
+			<div class="flex flex-col items-center w-full mt-8 mb-8">
+				<p class="p-3 mt-5 mb-5 text-center text-white bg-black w-72">
+					80% ของคนที่ได้จากไป ไม่มีการวางแผนคาดการณ์ล่วงหน้า
+				</p>
+				<Pie />
 			</div>
-			<p class="pl-16 pr-16 text-intro">
+			<p class="pl-16 pr-16 mt-8 text-intro">
 				แล้วคุณรู้ตัวไหม<br />
 				ว่าคุณมีการเตรียมตัวมากน้อยขนาดไหน?
 			</p>
