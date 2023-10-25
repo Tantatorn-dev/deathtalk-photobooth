@@ -18,6 +18,7 @@
 
 	let nameValue: string;
 	name.subscribe((value) => {
+		if (!value) value = 'ไม่ระบุชื่อ';
 		nameValue = value;
 	});
 
@@ -58,6 +59,27 @@
 		const originX = (canvas.width - FRAME_WIDTH) / 2 - 10;
 		const originY = (canvas.height - FRAME_HEIGHT) / 2 - 220;
 
+		const charmonmanFont = new FontFace(
+			'Charmonman',
+			`url('fonts/TH Charmonman.ttf')`,
+			{
+				weight: 'normal',
+				style: 'normal'
+			}
+		);
+
+		const charmonmanFontBold = new FontFace(
+			'Charmonman',
+			`url('fonts/TH Charmonman Bold.ttf')`,
+			{
+				weight: 'bold',
+				style: 'normal'
+			}
+		);
+
+		await charmonmanFont.load();
+		await charmonmanFontBold.load();
+
 		if (ctx) {
 			window.devicePixelRatio = 2;
 
@@ -89,9 +111,12 @@
 
 			ctx.fillStyle = '#000';
 			ctx.textAlign = 'center';
-			ctx.font = '11.5px Charmonman';
+			ctx.font = 'bold 18px Charmonman';
 
-			ctx.fillText(nameValue, originX + 110, originY + 210);
+			ctx.fillText(nameValue, originX + 110, originY + 200);
+
+			ctx.font = '14px Charmonman';
+
 			ctx.fillText(`ชาตะ ${toThaiDate(birthDateValue)}`, originX + 110, originY + 230);
 			ctx.fillText(`มรณะ ${toThaiDate(new Date())}`, originX + 110, originY + 250);
 
@@ -100,6 +125,7 @@
 
 			ctx.fillStyle = '#fff';
 			ctx.font = '14px IBM Plex Sans Thai Looped';
+			ctx.fillText('3 Emoji งานศพฉันต้องมีสิ่งเหล่านี้💀', originX + 110, originY + 340);
 			ctx.fillText('#deathtalkความตายและชีวิต', originX + 110, originY + 657);
 
 			const link = document.createElement('a');
@@ -134,5 +160,16 @@
 <style lang="postcss">
 	.wrapper-photo {
 		@apply flex flex-row items-center justify-center;
+	}
+
+	@font-face {
+		font-family: 'Charmonman';
+		src: url('/fonts/TH Charmonman.ttf') format('truetype');
+	}
+
+	@font-face {
+		font-family: 'Charmonman';
+		src: url('fonts/TH Charmonman Bold.ttf') format('truetype');
+		font-weight: bold;
 	}
 </style>
