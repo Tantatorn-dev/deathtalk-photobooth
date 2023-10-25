@@ -42,7 +42,9 @@
 				คุณถือว่ามีความรู้ด้านการรู้เท่าทันความตายในระดับ {gradeStrMap[grade]}
 			</p>
 			<FrameSelector />
-			<p class="text-sm text-center">ร่วมแบ่งปันเรื่องราวของคุณผ่าน <br /> #deathtalkth</p>
+			<p class="text-sm text-center">
+				ร่วมแบ่งปันเรื่องราวของคุณผ่าน <br /> #deathtalkความตายและชีวิต
+			</p>
 			<div class="flex justify-center mt-10 mb-10">
 				<FacebookShareButton />
 			</div>

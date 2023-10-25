@@ -18,6 +18,7 @@
 
 	let nameValue: string;
 	name.subscribe((value) => {
+		if (!value) value = 'ไม่ระบุชื่อ';
 		nameValue = value;
 	});
 
@@ -56,11 +57,32 @@
 		canvas.width = IMG_WIDTH;
 		canvas.height = IMG_HEIGHT;
 		const originX = (canvas.width - FRAME_WIDTH) / 2 - 10;
-		const originY = (canvas.height - FRAME_HEIGHT) / 2;
+		const originY = (canvas.height - FRAME_HEIGHT) / 2 - 220;
+
+		const charmonmanFont = new FontFace(
+			'Charmonman',
+			`url('fonts/TH Charmonman.ttf')`,
+			{
+				weight: 'normal',
+				style: 'normal'
+			}
+		);
+
+		const charmonmanFontBold = new FontFace(
+			'Charmonman',
+			`url('fonts/TH Charmonman Bold.ttf')`,
+			{
+				weight: 'bold',
+				style: 'normal'
+			}
+		);
+
+		await charmonmanFont.load();
+		await charmonmanFontBold.load();
 
 		if (ctx) {
-			window.devicePixelRatio = 2; 
-			
+			window.devicePixelRatio = 2;
+
 			canvas.style.width = IMG_WIDTH + 'px';
 			canvas.style.height = IMG_HEIGHT + 'px';
 
@@ -78,8 +100,8 @@
 			const bg = await loadImage('/share_bg.png');
 			ctx.drawImage(bg, 0, 0, IMG_WIDTH, IMG_HEIGHT);
 
-			const flowers = await loadImage('/misc/funeral.png');
-			ctx.drawImage(flowers, originX  - 40, originY - 100, 300, 350);
+			const whiteFlowers = await loadImage('/misc/white_flowers.png');
+			ctx.drawImage(whiteFlowers, originX - 90, originY + 310, 390, 265);
 
 			const frame = await loadImage(`/frame/${selectedFrame}_frame.svg`);
 			ctx.drawImage(frame, originX, originY);
@@ -89,18 +111,22 @@
 
 			ctx.fillStyle = '#000';
 			ctx.textAlign = 'center';
-			ctx.font = '11.5px Charmonman';
+			ctx.font = 'bold 18px Charmonman';
 
-			ctx.fillText(nameValue, originX + 110, originY + 210);
+			ctx.fillText(nameValue, originX + 110, originY + 200);
+
+			ctx.font = '14px Charmonman';
+
 			ctx.fillText(`ชาตะ ${toThaiDate(birthDateValue)}`, originX + 110, originY + 230);
 			ctx.fillText(`มรณะ ${toThaiDate(new Date())}`, originX + 110, originY + 250);
 
 			ctx.fillStyle = '#000';
-			ctx.fillRect(originX + 110 - 50, originY + 380, 100, 20);
+			ctx.fillRect(originX + 10, originY + 640, 200, 25);
 
 			ctx.fillStyle = '#fff';
 			ctx.font = '14px IBM Plex Sans Thai Looped';
-			ctx.fillText('#deathtalkth', originX + 110, originY + 395);
+			ctx.fillText('3 Emoji งานศพฉันต้องมีสิ่งเหล่านี้💀', originX + 110, originY + 340);
+			ctx.fillText('#deathtalkความตายและชีวิต', originX + 110, originY + 657);
 
 			const link = document.createElement('a');
 			link.download = 'deathtalkth.png';
@@ -134,5 +160,16 @@
 <style lang="postcss">
 	.wrapper-photo {
 		@apply flex flex-row items-center justify-center;
+	}
+
+	@font-face {
+		font-family: 'Charmonman';
+		src: url('/fonts/TH Charmonman.ttf') format('truetype');
+	}
+
+	@font-face {
+		font-family: 'Charmonman';
+		src: url('fonts/TH Charmonman Bold.ttf') format('truetype');
+		font-weight: bold;
 	}
 </style>
