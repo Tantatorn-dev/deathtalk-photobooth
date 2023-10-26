@@ -43,7 +43,7 @@
 			</p>
 			<FrameSelector />
 			<p class="text-sm text-center">
-				ร่วมแบ่งปันเรื่องราวของคุณผ่าน <br /> #deathtalkความตายและชีวิต
+				ร่วมแบ่งปันเรื่องราวเกี่ยวกับ<br />การเตรียมพร้อมสำหรับความตาย/งานศพของคุณ ผ่าน <br /> #deathtalkความตายและชีวิต
 			</p>
 			<div class="flex justify-center mt-10 mb-10">
 				<FacebookShareButton />
