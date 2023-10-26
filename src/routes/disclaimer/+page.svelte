@@ -6,7 +6,7 @@
 	import SplashText from '../../components/common/SplashText.svelte';
 	import SponsorBy from '../../components/intro/SponsorBy.svelte';
 
-	const {isShowStore, enhanceCallback} = useFade(()=>goto('/photo'));
+	const { isShowStore, enhanceCallback } = useFade(() => goto('/photo'));
 
 	let isShow = false;
 	isShowStore.subscribe((value) => {
@@ -22,8 +22,13 @@
 			<p class="mt-4 text-xs text-center">
 				เว็บไซต์นี้มีเนื้อหาเกี่ยวกับความตาย หากคุณรู้สึกไม่โอเค <br /> “สามารถหยุดเล่นได้ตลอดเวลา”
 			</p>
+			<p class="mt-4 text-xs text-center">
+				และอาจมีการเก็บรวบรวมข้อมูลส่วนบุคคล เช่น วันเดือนปีเกิด คำตอบ <br
+				/>เพื่อนำไปใช้ในวัตถุประสงค์ทางการวิจัยสำหรับพัฒนาโครงการเพื่อสร้างการตระหนักรู้ด้านความตาย
+				(Death Awareness) ในอนาคต
+			</p>
 			<div class="flex flex-row justify-center mt-20">
-				<NextButton onClick={enhanceCallback} />
+				<NextButton label="ยินยอมและไปต่อ" onClick={enhanceCallback} />
 			</div>
 		</div>
 	</FadeWrapper>
