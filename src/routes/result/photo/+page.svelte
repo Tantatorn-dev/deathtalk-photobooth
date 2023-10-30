@@ -3,6 +3,7 @@
 	import { avatar, birthDate, name } from '../../../store';
 	import { loadImage } from '../../../utils/img';
 	import { toThaiDate } from '../../../utils/utils';
+	import { browser } from '$app/environment';
 
 	let avatarValue: string;
 
@@ -28,7 +29,7 @@
 
 	let canvasImage: HTMLImageElement;
 
-	const renderCanvas = async () => {
+	const renderCanvas = async (frameColor: string) => {
 		const canvas = document.createElement('canvas');
 		const ctx = canvas.getContext('2d');
 
@@ -64,7 +65,7 @@
 			const whiteFlowers = await loadImage('/misc/white_flowers.png');
 			ctx.drawImage(whiteFlowers, originX - 90, originY + 310, 390, 265);
 
-			const frame = await loadImage(`/frame/black_frame.svg`);
+			const frame = await loadImage(`/frame/${frameColor}_frame.svg`);
 			ctx.drawImage(frame, originX, originY);
 
 			const img = await loadImage(avatarValue);
@@ -89,14 +90,19 @@
 			ctx.fillText('3 Emoji งานศพฉันต้องมีสิ่งเหล่านี้💀', originX + 110, originY + 340);
 			ctx.fillText('#deathtalkความตายและชีวิต', originX + 110, originY + 657);
 
-			canvasImage.src = canvas.toDataURL("image/png");
+			canvasImage.src = canvas.toDataURL('image/png');
 		}
 	};
 
-	onMount(() => {
-		renderCanvas();
-	});
 
+	onMount(() => {
+		const params = new URLSearchParams(window.location.search);
+		const frameColor = params.get('frame') || 'black';
+
+		renderCanvas(frameColor);
+	});
 </script>
 
-<img bind:this={canvasImage} alt="exported" />
+{#if browser}
+	<img bind:this={canvasImage} alt="exported" />
+{/if}
