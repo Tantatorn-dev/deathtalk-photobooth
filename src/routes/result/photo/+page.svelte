@@ -41,19 +41,6 @@
 		const originX = (IMG_WIDTH - FRAME_WIDTH) / 2 - 10;
 		const originY = (IMG_HEIGHT - FRAME_HEIGHT) / 2 - 220;
 
-		const charmonmanFont = new FontFace('Charmonman', `url('/fonts/TH Charmonman.ttf')`, {
-			weight: 'normal',
-			style: 'normal'
-		});
-
-		const charmonmanFontBold = new FontFace('Charmonman', `url('/fonts/TH Charmonman Bold.ttf')`, {
-			weight: 'bold',
-			style: 'normal'
-		});
-
-		await charmonmanFont.load();
-		await charmonmanFontBold.load();
-
 		if (ctx) {
 			window.devicePixelRatio = 2;
 
@@ -85,11 +72,11 @@
 
 			ctx.fillStyle = '#000';
 			ctx.textAlign = 'center';
-			ctx.font = 'bold 18px charmonman';
+			ctx.font = 'bold 18px Charmonman';
 
 			ctx.fillText(nameValue, originX + 110, originY + 200);
 
-			ctx.font = '14px charmonman';
+			ctx.font = '14px Charmonman';
 
 			ctx.fillText(`ชาตะ ${toThaiDate(birthDateValue)}`, originX + 110, originY + 230);
 			ctx.fillText(`มรณะ ${toThaiDate(new Date())}`, originX + 110, originY + 250);
