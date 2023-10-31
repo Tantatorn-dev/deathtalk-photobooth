@@ -31,8 +31,14 @@
 	<img src={frameImg} class="absolute z-30 w-full h-full" alt="frame" />
 	<div class="absolute left-10 z-40 w-[167px] h-[245px] bg-white top-10">
 		<img {src} class="mt-2 ml-auto mr-auto w-36 h-36" alt="avatar" />
-		<p class="mt-2 mb-2 text-xs text-center">{nameValue}</p>
-		<p class="text-xs text-center">ชาตะ {toThaiDate(birthDateValue)}</p>
-		<p class="text-xs text-center">มรณะ {toThaiDate(currentDate)}</p>
+		<p class="mt-2 mb-2 font-bold photo-text">{nameValue}</p>
+		<p class="photo-text">ชาตะ {toThaiDate(birthDateValue)}</p>
+		<p class="photo-text">มรณะ {toThaiDate(currentDate)}</p>
 	</div>
 </div>
+
+<style lang="postcss">
+	.photo-text {
+		@apply text-xs text-center font-[Charmonman];
+	}
+</style>
