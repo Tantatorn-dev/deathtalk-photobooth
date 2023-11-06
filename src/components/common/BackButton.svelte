@@ -1,5 +1,6 @@
 <script lang="ts">
 	export let onClick = () => {};
+	export let label = "ย้อนกลับ";
 	export let disabled = false;
 </script>
 
@@ -12,5 +13,5 @@
 	class={'z-20 flex flex-row' + (disabled ? ' opacity-50 cursor-not-allowed' : '')}
 >
 	<img src="/arrow/arrow_left.svg" class="w-6 h-6 mr-2" alt="arrow-right" />
-	<p>ย้อนกลับ</p>
+	<p>{label}</p>
 </button>

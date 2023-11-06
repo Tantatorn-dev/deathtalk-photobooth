@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import BackButton from '../../../components/common/BackButton.svelte';
 	import FadeWrapper from '../../../components/common/FadeWrapper/FadeWrapper.svelte';
 	import useFade from '../../../components/common/FadeWrapper/useFade';
 	import NextButton from '../../../components/common/NextButton.svelte';
@@ -24,16 +25,14 @@
 		<div class="flex flex-col gap-3 ml-8 mr-8">
 			<p class="mt-20 text-2xl text-center">กิจกรรมพิเศษ</p>
 			<p class="mt-8 font-light text-center">
-				ถ้าคุณสงสัยว่า เราจะสามารถเตรียมพร้อม <br />
-				ในเรื่องความตายอย่างไรได้บ้าง?
+				เรากำลังจะมีโปรเจกต์สำหรับคนที่สนใจการตระหนักรู้เรื่องความตาย (Death Awareness)
 			</p>
 			<p class="mt-4 font-light text-center">
-				เราคัดเลือกตัวอย่างวิธีเตรียมตัวตายฉบับย่อ <br />
-				มาให้คุณดูแบบรวบรัด ใช้เวลาเพียง 1 นาทีเท่านั้น
+				หากคุณสนใจและยินดีร่วมเป็นส่วนหนึ่งในโปรเจกต์สามารถลงชื่อได้เลย
 			</p>
-			<div class="flex flex-col items-center justify-center mt-10 gap-y-4">
-				<NextButton label="ลงทะเบียนกิจกรรม" onClick={toRegister} />
-				<NextButton label="กลับไปที่หน้าผลลัพธ์" onClick={enhanceCallback} />
+			<div class="flex flex-row justify-between mt-10">
+				<BackButton onClick={enhanceCallback} />
+				<NextButton label="สนใจ" onClick={toRegister} />
 			</div>
 		</div>
 	</FadeWrapper>
