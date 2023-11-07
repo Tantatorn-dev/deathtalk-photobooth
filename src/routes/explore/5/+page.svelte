@@ -29,7 +29,7 @@
 	<img src="/vine/vine_1.svg" class="w-24 -mb-6 -ml-10" alt="vine" />
 	<Header chapter={5} title="การเข้าถึงความช่วยเหลือ" />
 	<div class="flex flex-col gap-5 mt-10">
-		<Question question="1. คุณรู้จักคนที่สามารถช่วยฉันเข้าถึงการสนับสนุนจากชุมชน?" name="e1" />
+		<Question question="1. คุณรู้จักคนที่สามารถช่วยฉันเข้าถึงการสนับสนุนในชุมชน?" name="e1" />
 		<Question question="2. คุณรู้จักคนที่ให้การดูแลผู้ป่วยที่กำลังจะตายในแต่ละวัน?" name="e2" />
 		<Question question="3. คุณสามารถเข้าถึงอุปกรณ์ที่จำเป็นสำหรับการดูแล?" name="e3" />
 		<Question question="4. คุณสามารถเข้าถึงการสนับสนุนที่เหมาะสมทางวัฒนธรรม?" name="e4" />
