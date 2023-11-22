@@ -23,7 +23,6 @@
 		"postcss": "^8.4.24",
 		"prettier": "^2.8.0",
 		"prettier-plugin-svelte": "^2.10.1",
-		"stwui": "^0.18.4-next",
 		"svelte": "^4.0.0",
 		"svelte-carousel": "^1.0.25",
 		"svelte-check": "^3.4.3",
