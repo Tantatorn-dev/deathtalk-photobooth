@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import Cropper from 'svelte-easy-crop';
-	import { DatePicker } from 'stwui';
 	import FadeWrapper from '../../components/common/FadeWrapper/FadeWrapper.svelte';
 	import useFade from '../../components/common/FadeWrapper/useFade';
 	import NextButton from '../../components/common/NextButton.svelte';
@@ -137,12 +136,11 @@
 
 		<div class="flex flex-col w-full gap-1 mt-4">
 			<p class="text-sm">วันเกิด*</p>
-			<DatePicker
-				name="date"
+			<input
+				class="button-secondary bg-secondary"
 				placeholder="เลือกวันเกิด"
-				bind:value={$birthDate}
-				data-theme="mytheme"
-				mobile
+				type="date"
+				on:change={(e) => birthDate.set(new Date(e.currentTarget.value))}
 			/>
 		</div>
 
@@ -167,3 +165,10 @@
 	on:change={(e) => onFileSelected(e)}
 	bind:this={fileinput}
 />
+
+<style>
+	input[type='date'] {
+		-webkit-appearance: none;
+		min-height: 2.8rem;
+	}
+</style>

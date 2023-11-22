@@ -9,7 +9,7 @@
 	let answersValue: Answer[] = [];
 	answers.subscribe((value) => {
 		answersValue = value;
-	
+
 		selected = answersValue.find((answer) => answer.name === name)?.choice ?? null;
 	});
 
@@ -29,51 +29,65 @@
 
 		answers.set(answersValue);
 	};
+
+	const getQIdentifier = () => {
+		// a=1, b=2, c=3, d=4, e=5
+		const numChar = name.charCodeAt(0) - 96;
+
+		return `Q${numChar}${name.slice(1)}`;
+	};
+
+	const getAnswerIdentifier = (firstChar: string) => {
+		// a=1, b=2, c=3, d=4, e=5
+		const numChar = name.charCodeAt(0) - 96;
+
+		return `${firstChar}${numChar}${name.slice(1)}`;
+	};
 </script>
 
-<div class="flex flex-col gap-2">
+<div id={getQIdentifier()} class="flex flex-col gap-2">
 	<p class="text-sm">{question}</p>
 	<div class="flex flex-row">
-		<div class="choice">
+		<div id={getAnswerIdentifier('A')} class="choice">
 			{#if selected === Choice.VERY_LITTLE}
 				<div class="choicebox selected">
 					<img src="/check.svg" alt="check" />
 				</div>
 			{:else}
-				<button class="choicebox" on:click={()=>onSelect(Choice.VERY_LITTLE)} />
+				<button class="choicebox" on:click={() => onSelect(Choice.VERY_LITTLE)} />
 			{/if}
 			<p class="label">น้อยมาก</p>
 		</div>
 		<div class="line" />
-		<div class="choice">
+		<div id={getAnswerIdentifier('B')} class="choice">
 			{#if selected === Choice.LITTLE}
 				<div class="choicebox selected">
 					<img src="/check.svg" alt="check" />
 				</div>
 			{:else}
-				<button class="choicebox" on:click={()=>onSelect(Choice.LITTLE)} />
+				<button class="choicebox" on:click={() => onSelect(Choice.LITTLE)} />
 			{/if}
 			<p class="label">น้อย</p>
 		</div>
 		<div class="line" />
-		<div class="choice">
+		<div id={getAnswerIdentifier('C')} class="choice">
 			{#if selected === Choice.MEDIUM}
 				<div class="choicebox selected">
 					<img src="/check.svg" alt="check" />
 				</div>
 			{:else}
-				<button class="choicebox" on:click={()=>onSelect(Choice.MEDIUM)} />
+				<button class="choicebox" on:click={() => onSelect(Choice.MEDIUM)} />
 			{/if}
 			<p class="label">ปานกลาง</p>
 		</div>
 		<div class="line" />
-		<div class="choice">
+		<div id={getAnswerIdentifier('D')} class="choice">
 			{#if selected === Choice.MUCH}
 				<div class="choicebox selected">
 					<img src="/check.svg" alt="check" />
 				</div>
 			{:else}
-				<button class="choicebox" on:click={()=>onSelect(Choice.MUCH)} />
+				<button class="choicebox" on:click={() => onSelect(Choice.MUCH)} />
 			{/if}
 			<p class="label">มาก</p>
 		</div>
