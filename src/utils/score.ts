@@ -7,7 +7,17 @@ export const choiceScoreMap = {
 	[Choice.MUCH]: 4
 };
 
-type Category = 'a' | 'b' | 'c' | 'd' | 'e';
+export const gradeStrMap: Record<number, string> = {
+	7: 'สูงที่สุด',
+	6: 'สูง',
+	5: 'ค่อนข้างสูง',
+	4: 'ปานกลาง',
+	3: 'ค่อนข้างต่ำ',
+	2: 'ต่ำ',
+	1: 'ต่ำที่สุด'
+};
+
+export type Category = 'a' | 'b' | 'c' | 'd' | 'e';
 
 const categoryModifierMap: Record<Category, number> = {
 	a: 16,
@@ -17,7 +27,7 @@ const categoryModifierMap: Record<Category, number> = {
 	e: 20
 };
 
-export const calculateScore = (answers: Answer[]): number => {
+export const calculateScoresByCategory = (answers: Answer[]): Record<Category, number> => {
 	const categoryScores: Record<Category, number> = {
 		a: 0,
 		b: 0,
@@ -38,6 +48,12 @@ export const calculateScore = (answers: Answer[]): number => {
 	(['a', 'b', 'c', 'd', 'e'] as Category[]).forEach((category) => {
 		categoryScores[category] = (categoryScores[category] * 10) / categoryModifierMap[category];
 	});
+
+	return categoryScores;
+};
+
+export const calculateScore = (answers: Answer[]): number => {
+	const categoryScores = calculateScoresByCategory(answers);
 
 	const sum = Object.values(categoryScores).reduce((acc, curr) => acc + curr, 0);
 	return sum;
