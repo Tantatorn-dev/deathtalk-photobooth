@@ -4,25 +4,7 @@
 	import SplashText from '../../components/common/SplashText.svelte';
 	import FacebookShareButton from '../../components/result/FacebookShareButton.svelte';
 	import FrameSelector from '../../components/result/FrameSelector.svelte';
-	import { answers } from '../../store';
-	import { calculateScore, determineGrade } from '../../utils/score';
-
-	let score = 0;
-	let grade = 4;
-	answers.subscribe((value) => {
-		score = calculateScore(value);
-		grade = determineGrade(score);
-	});
-
-	const gradeStrMap: Record<number, string> = {
-		7: 'สูงที่สุด',
-		6: 'สูง',
-		5: 'ค่อนข้างสูง',
-		4: 'ปานกลาง',
-		3: 'ค่อนข้างต่ำ',
-		2: 'ต่ำ',
-		1: 'ต่ำที่สุด'
-	};
+	import ScoreBoard from '../../components/result/ScoreBoard.svelte';
 
 	let isShow = false;
 
@@ -33,14 +15,12 @@
 
 {#if isShow}
 	<div in:fade class="flex flex-col justify-between w-full h-full">
+		<div class="flex flex-col gap-2 mt-5 ml-6 mr-6">
+			<SplashText className="pt-4 pb-4 pl-8 pr-8 text-center text-xl mb-5">ผลลัพธ์💡</SplashText>
+			<ScoreBoard />
+		</div>
 		<div class="flex flex-col gap-3 pt-10">
-			<SplashText className="pt-4 pb-4 pl-8 pr-8 text-center text-xl"
-				>ผลลัพธ์และของที่ระลึก</SplashText
-			>
-			<p class="mt-1 font-bold text-center">คุณมีการรู้เท่าทันความตายได้ระดับ {grade}</p>
-			<p class="pl-6 pr-6 text-xs text-center">
-				คุณถือว่ามีความรู้ด้านการรู้เท่าทันความตายในระดับ {gradeStrMap[grade]}
-			</p>
+			<SplashText className="pt-4 pb-4 pl-8 pr-8 text-center text-xl mb-5">ของที่ระลึก💀</SplashText>
 			<FrameSelector />
 			<p class="text-sm text-center">
 				ร่วมแบ่งปันเรื่องราวเกี่ยวกับ<br />การเตรียมพร้อมสำหรับความตาย/งานศพของคุณ ผ่าน <br /> #deathtalkความตายและชีวิต
