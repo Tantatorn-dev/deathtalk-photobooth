@@ -35,10 +35,10 @@
 		/>
 	</div>
 	<div class="flex flex-col gap-10 mt-10">
-		<Question question="1. คุณสามารถหาอาหารหรือป้อนอาหารให้พวกเขาได้ไหม?" name="b1" />
-		<Question question="2. คุณสามารถอาบน้ำให้เขาได้ไหม?" name="b2" />
-		<Question question="3. คุณสามารถยกหรือเคลื่อนย้ายพวกเขาได้ไหม?" name="b3" />
-		<Question question="4. คุณสามารถฉีดยาให้พวกเขาได้ไหม?" name="b4" />
+		<Question question="1. คุณสามารถหาอาหารหรือป้อนอาหารให้พวกเขาได้ไหม" name="b1" />
+		<Question question="2. คุณสามารถอาบน้ำให้เขาได้ไหม" name="b2" />
+		<Question question="3. คุณสามารถยกหรือเคลื่อนย้ายพวกเขาได้ไหม" name="b3" />
+		<Question question="4. คุณสามารถฉีดยาให้พวกเขาได้ไหม" name="b4" />
 		<div class="flex justify-between">
 			<BackButton onClick={() => goto(`/explore/1`)} />
 			<NextButton

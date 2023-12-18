@@ -29,7 +29,7 @@
 	<img src="/vine/vine_1.svg" class="w-24 -mb-6 -ml-10" alt="vine" />
 	<Header chapter={4} title="ประเมินความรู้ต่าง ๆ" subtitle="ความรู้ต่างๆเกี่ยวกับความตาย" />
 	<div class="flex flex-col gap-10 mt-10">
-		<Question question="1. คุณรู้กฎหมายเกี่ยวกับการตายที่บ้าน?" name="d1" />
+		<Question question="1. คุณรู้กฎหมายเกี่ยวกับการตายที่บ้าน" name="d1" />
 		<Question question="2. คุณทราบว่าต้องเตรียมเอกสารอะไรบ้างในการวางแผนการตาย" name="d2" />
 		<Question
 			question="3. คุณรู้วิธีดูแลสุขภาพของผู้ป่วยระยะสุดท้าย"
