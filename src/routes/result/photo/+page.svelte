@@ -36,6 +36,11 @@
 		const IMG_WIDTH = 390;
 		const IMG_HEIGHT = 844;
 
+		const isMobile = window.innerWidth < 768;
+
+		const scaleX = isMobile ? window.innerWidth / IMG_WIDTH : 1;
+		const scaleY = isMobile ? window.innerHeight / IMG_HEIGHT : 1;
+
 		const FRAME_WIDTH = 192;
 		const FRAME_HEIGHT = 261;
 
@@ -45,15 +50,15 @@
 		if (ctx) {
 			window.devicePixelRatio = 2;
 
-			canvas.style.width = IMG_WIDTH + 'px';
-			canvas.style.height = IMG_HEIGHT + 'px';
+			canvas.style.width = IMG_WIDTH * scaleX + 'px';
+			canvas.style.height = IMG_HEIGHT * scaleY + 'px';
 
 			const scale = window.devicePixelRatio;
 
-			canvas.width = Math.floor(IMG_WIDTH * scale);
-			canvas.height = Math.floor(IMG_HEIGHT * scale);
+			canvas.width = Math.floor(IMG_WIDTH * scale * scaleX);
+			canvas.height = Math.floor(IMG_HEIGHT * scale * scaleY);
 
-			ctx.scale(scale, scale);
+			ctx.scale(scale * scaleX, scale * scaleY);
 
 			ctx.fillStyle = '#000';
 			ctx.rect(0, 0, canvas.width, canvas.height);
@@ -93,7 +98,6 @@
 			canvasImage.src = canvas.toDataURL('image/png');
 		}
 	};
-
 
 	onMount(() => {
 		const params = new URLSearchParams(window.location.search);
