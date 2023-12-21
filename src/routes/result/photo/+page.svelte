@@ -65,7 +65,7 @@
 			ctx.drawImage(bg, 0, 0, IMG_WIDTH, IMG_HEIGHT);
 
 			const whiteFlowers = await loadImage('/misc/white_flowers.png');
-			ctx.drawImage(whiteFlowers, originX - 90, originY + 310, 390, 265);
+			ctx.drawImage(whiteFlowers, originX - 95, originY + 310, 390, 265);
 
 			const frame = await loadImage(`/frame/${frameColor}_frame.svg`);
 			ctx.drawImage(frame, originX, originY);
@@ -84,13 +84,16 @@
 			ctx.fillText(`ชาตะ ${toThaiDate(birthDateValue)}`, originX + 110, originY + 230);
 			ctx.fillText(`มรณะ ${toThaiDate(new Date())}`, originX + 110, originY + 250);
 
-			ctx.fillStyle = '#000';
-			ctx.fillRect(originX + 10, originY + 640, 200, 25);
-
 			ctx.fillStyle = '#fff';
 			ctx.font = '14px IBM Plex Sans Thai Looped';
 			ctx.fillText('3 Emoji งานศพฉันต้องมีสิ่งเหล่านี้💀', originX + 110, originY + 340);
-			ctx.fillText('#deathtalkความตายและชีวิต', originX + 110, originY + 657);
+
+			const hashTagX = originX + 10;
+			const hashTagY = IMG_HEIGHT < 700 ? IMG_HEIGHT - 70 : IMG_HEIGHT - 120;
+			ctx.fillStyle = '#000';
+			ctx.fillRect(hashTagX, hashTagY, 200, 25);
+			ctx.fillStyle = '#fff';
+			ctx.fillText('#deathtalkความตายและชีวิต', hashTagX + 100, hashTagY + 18);
 
 			canvasImage.src = canvas.toDataURL('image/png');
 		}
