@@ -33,14 +33,16 @@
 		const canvas = document.createElement('canvas');
 		const ctx = canvas.getContext('2d');
 
-		const IMG_WIDTH = 390;
-		const IMG_HEIGHT = 844;
+		const isMobile = window.innerWidth < 768;
+
+		const IMG_WIDTH = isMobile ? window.innerWidth : 390;
+		const IMG_HEIGHT = isMobile ? window.innerHeight : 844;
 
 		const FRAME_WIDTH = 192;
 		const FRAME_HEIGHT = 261;
 
-		const originX = (IMG_WIDTH - FRAME_WIDTH) / 2 - 10;
-		const originY = (IMG_HEIGHT - FRAME_HEIGHT) / 2 - 220;
+		const originX = (IMG_WIDTH - FRAME_WIDTH) * 0.48;
+		const originY = (IMG_HEIGHT - FRAME_HEIGHT) * 0.125;
 
 		if (ctx) {
 			window.devicePixelRatio = 2;
@@ -93,7 +95,6 @@
 			canvasImage.src = canvas.toDataURL('image/png');
 		}
 	};
-
 
 	onMount(() => {
 		const params = new URLSearchParams(window.location.search);
