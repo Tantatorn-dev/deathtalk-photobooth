@@ -3,6 +3,9 @@
 [Deathtalk](facebook.com/DeathTalkative) is a group which aims to create a space where young people can engage in open and normal conversations about life and death. 
 Deathtalk Photobooth is a website that contains questions designed to assess one's readiness for death.
 
+ - Designed by Napat Suwannasorn (Ohm)
+ - Developed by Tantatorn Suksangwarn (Thyme)
+
 
 ## Developing
 
